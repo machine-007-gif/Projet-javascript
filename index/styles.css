@@ -1,44 +1,95 @@
-/* Importation de la police Inter */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;900&display=swap');
 
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
+    background-color: white;
 }
 
+/* --- NAVIGATION --- */
 nav {
     display: flex;
-    justify-content: space-between; /* Pousse le H1 à gauche et .links à droite */
-    align-items: center;           /* Aligne verticalement au centre */
-    padding: 10px 5%;              /* Un peu d'espace sur les côtés */
-    background-color: #fff;        /* Ou la couleur de ton choix */
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+}
+
+/* Groupe Logo + Horloge */
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 h1 {
+    font-weight: 900;
+    font-size: 56px;
+    line-height: 1;
+    letter-spacing: -2.5px;
+    text-transform: uppercase;
     margin: 0;
-    font-size: 3rem;
+}
+
+/* --- HORLOGE MINI (SANS SCALE) --- */
+.clock {
+    display: flex;
+    margin-top: 5px; /* Petit espace sous le titre */
+    height: 45px;    /* Hauteur totale de l'horloge */
+}
+
+/* Chaque chiffre de l'horloge */
+.clock > div {
+    position: relative;
+    width: 25px;     /* Largeur d'un chiffre */
+    height: 40px;    /* Hauteur d'un chiffre */
+    margin-right: 8px;
+}
+
+/* Les segments de l'horloge */
+.segment {
+    position: absolute;
+    background: #2df; /* Couleur bleue */
+    border-radius: 2px;
+    transition: opacity 0.2s;
+}
+
+/* Positionnement précis des petits segments */
+.segment0 { left: 4px; top: 0; width: 14px; height: 3px; }    /* Haut */
+.segment1 { left: 0; top: 4px; width: 3px; height: 12px; }    /* Haut-Gauche */
+.segment2 { left: 20px; top: 4px; width: 3px; height: 12px; }   /* Haut-Droite */
+.segment3 { left: 4px; top: 18px; width: 14px; height: 3px; }  /* Milieu */
+.segment4 { left: 0; top: 22px; width: 3px; height: 12px; }   /* Bas-Gauche */
+.segment5 { left: 20px; top: 22px; width: 3px; height: 12px; }  /* Bas-Droite */
+.segment6 { left: 4px; top: 36px; width: 14px; height: 3px; }  /* Bas */
+
+/* Les deux points (:) */
+.clock > .colon {
+    width: 10px;
+    line-height: 35px;
+    text-align: center;
+    color: #2df;
     font-weight: bold;
+    font-size: 20px;
 }
 
+/* État éteint */
+.off {
+    opacity: 0.1;
+}
+
+/* --- LIENS --- */
 .links {
-    display: flex;                 /* Met les <li> sur une ligne */
-    list-style: none;              /* Enlève les puces des listes */
+    display: flex;
+    list-style: none;
     margin: 0;
-    padding: 0;
 }
 
-.links li {
-    margin-left: 40px;             /* Espace entre chaque lien */
-}
+.links li { margin-left: 30px; }
 
 .links a {
-    text-decoration: none;         /* Enlève le soulignement */
-    color: #333;
-    font-weight: 400;
-    transition: color 0.3s;
-    font-size: 1.25rem;
-}
-
-.links a:hover {
-    color: #007bff;                /* Couleur au survol */
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 13px;
 }
