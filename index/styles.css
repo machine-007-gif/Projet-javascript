@@ -1,0 +1,44 @@
+/* Importation de la police Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between; /* Pousse le H1 à gauche et .links à droite */
+    align-items: center;           /* Aligne verticalement au centre */
+    padding: 10px 5%;              /* Un peu d'espace sur les côtés */
+    background-color: #fff;        /* Ou la couleur de ton choix */
+}
+
+h1 {
+    margin: 0;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.links {
+    display: flex;                 /* Met les <li> sur une ligne */
+    list-style: none;              /* Enlève les puces des listes */
+    margin: 0;
+    padding: 0;
+}
+
+.links li {
+    margin-left: 40px;             /* Espace entre chaque lien */
+}
+
+.links a {
+    text-decoration: none;         /* Enlève le soulignement */
+    color: #333;
+    font-weight: 400;
+    transition: color 0.3s;
+    font-size: 1.25rem;
+}
+
+.links a:hover {
+    color: #007bff;                /* Couleur au survol */
+}
