@@ -6,12 +6,32 @@
     <link rel="stylesheet" href="team.css">
     <link rel="stylesheet" href="../index/styles.css">
     <script src="team.js" defer></script>
+    <script src="../index/script.js" defer></script>
     <title>Notre Équipe</title>
 </head>
 <body>
+    <div id="loader-overlay">
+        <div class="loader-bar"></div>
+        <div id="loader-text">Chargement...</div>
+    </div>
     <header>
         <nav>
-            <h1>Trackwear</h1>
+            <div class="logo-container">
+                <h1><a href="../index/index.html">Trackwear</a></h1>
+                <div class="time">
+                    <div id="clock" class="clock">                   
+                        <div id="hours-tens"></div>
+                        <div id="hours-units"></div>
+                        <div id="colon" class="colon">:</div>
+                        <div id="minutes-tens"></div>
+                        <div id="minutes-units"></div>
+                    </div>
+                    <div class="chrono-container">
+                        <span id="label">Session :</span>
+                        <span id="chrono">00:00</span>
+                    </div>
+                </div>
+            </div>
             <div class="links">
                 <li><a href="../index/index.html">Accueil</a></li>                
                 <li><a href="../about/about.html">À propos</a></li>

@@ -8,16 +8,27 @@
     <title>Accueil</title>
 </head>
 <body>
+    <div id="loader-overlay">
+        <div class="loader-bar"></div>
+        <div id="loader-text">Chargement...</div>
+    </div>
     <header>
         <nav>
-            <h1>Trackwear</h1>
-            <div id="clock" class="clock">
-                <div id="hours-tens"></div>
-                <div id="hours-units"></div>
-                <div id="colon" class="colon off">:</div>
-                <div id="minutes-tens"></div>
-                <div id="minutes-units"></div>
-                <div></div>
+            <div class="logo-container">
+                <h1><a href="../index/index.html">Trackwear</a></h1>
+                <div class="time">
+                    <div id="clock" class="clock">                   
+                        <div id="hours-tens"></div>
+                        <div id="hours-units"></div>
+                        <div id="colon" class="colon">:</div>
+                        <div id="minutes-tens"></div>
+                        <div id="minutes-units"></div>
+                    </div>
+                    <div class="chrono-container">
+                        <span id="label">Session :</span>
+                        <span id="chrono">00:00</span>
+                    </div>
+                </div>
             </div>
             <div class="links">
                 <li><a href="../index/index.html">Accueil</a></li>                
@@ -29,5 +40,31 @@
             </div>
         </nav>
     </header>
+
+    <footer>
+        <div class="footer-content">
+            <div class="campus">
+                <h3>Brest</h3>
+                <p>20 Rue Cuirassé Bretagne, 29200 Brest</p>
+                <p class="phone-number">02 98 03 84 00</p>
+            </div>
+            <div class="campus">
+                <h3>Caen</h3>
+                <p>16bis Quai Amiral Hamelin, 14000 Caen</p>
+                <p class="phone-number">02 30 31 03 20</p>
+            </div>
+            <div class="campus">
+                <h3>Nantes</h3>
+                <p>33 QUATER Av. du Champ de Manœuvre, 44470 Carquefou</p>
+                <p class="phone-number">02 30 13 05 60</p>
+            </div>
+            <div class="campus">
+                <h3>Rennes</h3>
+                <p>22 Bd Saint-Conwoïon, 35000 Rennes</p>
+                <p class="phone-number">02 30 13 02 50</p>
+            </div>
+        </div>
+        <audio id="ringtone" src="https://www.soundjay.com/phone/telephone-ring-01a.mp3"></audio>
+    </footer>
 </body>
 </html>
