@@ -31,7 +31,7 @@ function initPlagiarismWarning() {
 }
 
 function initNavigation() {
-    const links = document.querySelectorAll('nav a');
+    const links = document.querySelectorAll('nav a, .nav-link');
     const loader = document.getElementById('loader-overlay');
 
     links.forEach(link => {
@@ -118,40 +118,48 @@ function updateChrono() {
 }
 
 function initSloganAnimation() {
-    const sloganElement = document.getElementById('slogan-animated');
-    const fullText = "Pour que leurs seules traces soient celles dans le sable.";
-    const words = fullText.split(" "); // On découpe la phrase en tableau de mots
+    let sloganElement = document.getElementById('slogan-animated');
+    let fullText = "Pour que leurs seules traces soient celles dans le sable.";
+    // On split par espace, mais on nettoie les mots pour garder le HTML
+    let words = fullText.split(" "); 
 
-    async function runCycle() {
-        // 1. Nettoyage
+    function runCycle() {
         sloganElement.innerHTML = "";
         sloganElement.classList.remove('animate-move');
+        
+        let index = 0;
 
-        // 2. Apparition mot par mot
-        for (let word of words) {
-            const span = document.createElement('span');
-            span.textContent = word;
-            span.className = 'word';
-            sloganElement.appendChild(span);
-            
-            // Petit délai pour déclencher la transition CSS
-            await new Promise(resolve => setTimeout(resolve, 50));
-            span.classList.add('visible');
+        function showNextWord() {
+            if (index < words.length) {
+                let span = document.createElement('span');
+                // On utilise innerHTML pour que le <br /> soit interprété
+                span.innerHTML = words[index] + " "; 
+                span.className = 'word';
+                sloganElement.appendChild(span);
 
-            // Attendre 1 seconde entre chaque mot
-            await new Promise(resolve => setTimeout(resolve, 1000));
+                // Délai très court pour l'effet d'apparition (transition CSS)
+                setTimeout(() => {
+                    span.classList.add('visible');
+                }, 50);
+
+                index++;
+                // On attend 1 seconde avant le mot suivant
+                setTimeout(showNextWord, 1000);
+            } else {
+                // Quand tous les mots sont là, on lance la translation après 500ms
+                setTimeout(() => {
+                    sloganElement.classList.add('animate-move');
+                    
+                    // Attente de la fin de l'anim (1.5s) + pause (0.5s) avant de recommencer
+                    setTimeout(() => {
+                        sloganElement.innerHTML = "";
+                        runCycle(); // On relance la boucle
+                    }, 2000);
+                }, 500);
+            }
         }
 
-        // 3. Translation (Attendre un peu après le dernier mot)
-        await new Promise(resolve => setTimeout(resolve, 500));
-        sloganElement.classList.add('animate-move');
-
-        // 4. Attendre la fin de l'animation (1.5s) + pause avant effacement
-        await new Promise(resolve => setTimeout(resolve, 2000));
-
-        // 5. Effacement et relance du cycle
-        sloganElement.innerHTML = "";
-        runCycle(); 
+        showNextWord();
     }
 
     runCycle();
