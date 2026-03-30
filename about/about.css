@@ -1,0 +1,98 @@
+/*style h1*/
+h1 {
+    margin: 0;
+    font-weight: 900;
+    font-size: 38px; 
+    line-height: 1;
+    letter-spacing: -2.2px;
+    text-transform: uppercase;
+    padding: 25px;
+}
+/*style p*/
+p {
+    margin: 0;
+    font-size: 20px; 
+    line-height: 1;
+    letter-spacing: 0.5px;
+    line-height: 30px;
+    padding: 25px;
+}
+/*rectangle de notre histoire*/
+.rec-histoire{
+    background-color:rgb(255, 201, 201);
+    color: black;
+    border-radius: 10px;
+    margin: 20px;
+}
+/*rectangle du trackeur*/
+.rec-trackeur{
+    background-color:rgb(252, 175, 127);
+    color: black;
+    border-radius: 10px;
+    margin: 20px;
+}
+/*modif image du trackeur*/
+#trackeur{
+    border-radius: 10px;
+    margin: 20px;  
+}
+/*met tout sur la meme ligne */
+.ligne {
+    display: flex;       
+    align-items: center; 
+    gap: 20px;           
+}
+/*animation des missions*/
+.boite-animée {
+    width: 450px;           
+    height: 60px;           
+    background-color: #2c3e50; 
+    color: white;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;       
+    transition: all 0.4s ease-in-out; 
+    cursor: pointer;
+    margin: 20px;     
+}
+
+/* Style des titres de missions */
+.Missions {
+    margin: 0;
+    font-weight: bold;
+    font-size: 1.2rem;
+    flex-shrink: 0
+}
+
+/* Style du texte caché */
+.texte-cache {
+   margin: 0;
+    opacity: 0;
+    font-size: 0.9rem;
+    text-align: center;
+    max-height: 0; 
+    transition: all 0.5s ease;
+    padding: 0 10px;
+    line-height: 1.4;
+}
+
+/* ÉTAT AU SURVOL */
+
+.boite-animée:hover {
+    width: 550px;           /* S'élargit */
+    height: 180px;          /* S'agrandit vers le bas */
+    background-color: #e67e22; /* Change de couleur  */
+}
+
+.boite-animée:hover .texte-cache {
+    opacity: 1;
+    max-height: 200px; 
+    margin-top: 15px;             
+}
+
+.boite-animée:hover .Missions {
+    transform: translateY(-5px); 
+}
