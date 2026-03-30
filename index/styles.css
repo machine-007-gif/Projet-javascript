@@ -181,9 +181,46 @@ h1 a {
 }
 .links a:hover::after { width: 100%; }
 
-.nav-active {
-    background-color: #ffcc00 !important; /* Couleur test bien visible */
-    color: #000 !important;
+.slogan-container {
+    height: 100px; /* Hauteur fixe pour éviter que le reste du site bouge */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.slogan-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    text-align: center;
+    transition: all 0.5s ease;
+}
+
+/* Animation de translation (Droite -> Gauche -> Centre) */
+@keyframes shakeAndSlide {
+    0% { transform: translateX(0); }
+    30% { transform: translateX(50px); }
+    60% { transform: translateX(-50px); }
+    100% { transform: translateX(0); }
+}
+
+.animate-move {
+    animation: shakeAndSlide 1.5s ease-in-out forwards;
+}
+
+/* Apparition douce du mot */
+.word {
+    display: inline-block;
+    margin-right: 8px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.5s ease;
+}
+
+.word.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 #custom-confirm {

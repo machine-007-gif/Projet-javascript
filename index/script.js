@@ -117,6 +117,46 @@ function updateChrono() {
     }
 }
 
+function initSloganAnimation() {
+    const sloganElement = document.getElementById('slogan-animated');
+    const fullText = "Pour que leurs seules traces soient celles dans le sable.";
+    const words = fullText.split(" "); // On découpe la phrase en tableau de mots
+
+    async function runCycle() {
+        // 1. Nettoyage
+        sloganElement.innerHTML = "";
+        sloganElement.classList.remove('animate-move');
+
+        // 2. Apparition mot par mot
+        for (let word of words) {
+            const span = document.createElement('span');
+            span.textContent = word;
+            span.className = 'word';
+            sloganElement.appendChild(span);
+            
+            // Petit délai pour déclencher la transition CSS
+            await new Promise(resolve => setTimeout(resolve, 50));
+            span.classList.add('visible');
+
+            // Attendre 1 seconde entre chaque mot
+            await new Promise(resolve => setTimeout(resolve, 1000));
+        }
+
+        // 3. Translation (Attendre un peu après le dernier mot)
+        await new Promise(resolve => setTimeout(resolve, 500));
+        sloganElement.classList.add('animate-move');
+
+        // 4. Attendre la fin de l'animation (1.5s) + pause avant effacement
+        await new Promise(resolve => setTimeout(resolve, 2000));
+
+        // 5. Effacement et relance du cycle
+        sloganElement.innerHTML = "";
+        runCycle(); 
+    }
+
+    runCycle();
+}
+
 function initFooterPhoneEvents() {
     let phoneNumbers = document.querySelectorAll('.phone-number');
     let ringtone = document.getElementById('ringtone');
@@ -154,6 +194,7 @@ function main() {
     updateTime();
     updateChrono();
     initNavigation();
+    initSloganAnimation();
     initFooterPhoneEvents();
     initPlagiarismWarning();
     setInterval(updateTime, 1000);
