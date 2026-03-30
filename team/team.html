@@ -10,7 +10,7 @@
     <title>Notre Équipe</title>
 </head>
 <body>
-    <div id="loader-overlay">
+     <div id="loader-overlay">
         <div class="loader-bar"></div>
         <div id="loader-text">Chargement...</div>
     </div>
@@ -36,11 +36,46 @@
                 <li><a href="../index/index.html">Accueil</a></li>                
                 <li><a href="../about/about.html">À propos</a></li>
                 <li><a href="../produits/produits.html">Produits</a></li>
-                <li><a href="../team/team.html">Notre Équipe</a></li>
+                <li><a href="../team/team.html" class="confirm-nav">Notre Équipe</a></li>
                 <li><a href="../contact/contact.html">Contact</a></li>
                 <li><a href="../location/location.html">Nous trouver</a></li>
             </div>
         </nav>
     </header>
+    <div id="custom-confirm" class="modal-hidden">
+        <div class="modal-content">
+            <p>Souhaitez-vous vraiment naviguer vers la présentation de l'équipe ?</p>
+            <div class="modal-buttons">
+                <button id="btn-vrai">VRAI</button>
+                <button id="btn-faux">FAUX</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="campus">
+                <h3>Brest</h3>
+                <p>20 Rue Cuirassé Bretagne, 29200 Brest</p>
+                <p class="phone-number">02 98 03 84 00</p>
+            </div>
+            <div class="campus">
+                <h3>Caen</h3>
+                <p>16bis Quai Amiral Hamelin, 14000 Caen</p>
+                <p class="phone-number">02 30 31 03 20</p>
+            </div>
+            <div class="campus">
+                <h3>Nantes</h3>
+                <p>33 QUATER Av. du Champ de Manœuvre, 44470 Carquefou</p>
+                <p class="phone-number">02 30 13 05 60</p>
+            </div>
+            <div class="campus">
+                <h3>Rennes</h3>
+                <p>22 Bd Saint-Conwoïon, 35000 Rennes</p>
+                <p class="phone-number">02 30 13 02 50</p>
+            </div>
+        </div>
+        <audio id="ringtone" src="../assets/audio/alastor_sonnerie.mp3"></audio>
+    </footer>
 </body>
 </html>

@@ -1,19 +1,58 @@
+window.addEventListener('load', () => {
+    const loader = document.getElementById('loader-overlay');
+    if (loader) {
+        setTimeout(() => {
+            loader.style.display = 'none';
+        }, 500);
+    }
+});
+
+function logAndChangeStyle(element) {
+    const styleAvant = window.getComputedStyle(element);
+    const ancienneCouleur = styleAvant.backgroundColor;
+
+    element.classList.add('nav-active');
+
+    const styleApres = window.getComputedStyle(element);
+    const nouvelleCouleur = styleApres.backgroundColor;
+
+    console.log(`Changement de style : L'ancienne couleur était "${ancienneCouleur}" et la nouvelle couleur est "${nouvelleCouleur}".`);
+}
+
+function handleUserInputErrors(error, context) {
+    console.error(`[Erreur Utilisateur - ${context}] : ${error}`);
+}
+
+function initPlagiarismWarning() {
+    document.addEventListener('copy', () => {
+        console.warn("--- ALERTE PLAGIAT ---");
+        console.warn("Rappel : Tout contenu copié sur ce site (Trackwear) reste la propriété intellectuelle de l'entreprise. Toute reproduction sans citation est strictement interdite.");
+    });
+}
+
 function initNavigation() {
-// On sélectionne tous les liens de la navigation
     const links = document.querySelectorAll('nav a');
     const loader = document.getElementById('loader-overlay');
+
     links.forEach(link => {
         link.addEventListener('click', function(event) {
-            // 1. On empêche le lien de s'ouvrir immédiatement
             event.preventDefault();
-
-            // 2. On récupère l'adresse de destination
             const destination = this.href;
 
-            // 3. On affiche le loader
-            loader.style.display = 'flex';
+            logAndChangeStyle(this);
 
-            // 4. On attend 2 secondes (2000ms) avant de rediriger
+            if (this.classList.contains('confirm-nav')) {
+                let choix = confirm("Souhaitez-vous vraiment naviguer vers la présentation de l'équipe ?");
+                if (!choix) {
+                    this.classList.remove('nav-active');
+                    return;
+                }
+            }
+
+            if (loader) {
+                loader.style.display = 'flex';
+            }
+
             setTimeout(() => {
                 window.location.href = destination;
             }, 2000);
@@ -21,109 +60,104 @@ function initNavigation() {
     });
 }
 
-function addSegments(digitId){
+function addSegments(digitId) {
     let chiffre = document.querySelector(digitId);
-
+    if (!chiffre) return;
     for (let i = 0; i < 7; i++) {
         let segmentDiv = document.createElement("div");
-        // On crée chaque barre avec la classe 'off' (éteinte) par défaut
         segmentDiv.classList.add("segment", "off");
         segmentDiv.classList.add("segment" + i);
         chiffre.appendChild(segmentDiv);
     }
 }
 
-function updateDigit(digitId, value){
-    // Modèles d'allumage pour les chiffres de 0 à 9
+function updateDigit(digitId, value) {
     let segmentStates = [
-        [1, 1, 1, 0, 1, 1, 1],
-        [0, 0, 1, 0, 0, 1, 0],
-        [1, 0, 1, 1, 1, 0, 1],
-        [1, 0, 1, 1, 0, 1, 1],
-        [0, 1, 1, 1, 0, 1, 0],
-        [1, 1, 0, 1, 0, 1, 1],
-        [1, 1, 0, 1, 1, 1, 1],
-        [1, 0, 1, 0, 0, 1, 0],
-        [1, 1, 1, 1, 1, 1, 1],
+        [1, 1, 1, 0, 1, 1, 1], [0, 0, 1, 0, 0, 1, 0], [1, 0, 1, 1, 1, 0, 1],
+        [1, 0, 1, 1, 0, 1, 1], [0, 1, 1, 1, 0, 1, 0], [1, 1, 0, 1, 0, 1, 1],
+        [1, 1, 0, 1, 1, 1, 1], [1, 0, 1, 0, 0, 1, 0], [1, 1, 1, 1, 1, 1, 1],
         [1, 1, 1, 1, 0, 1, 1]
     ];
-
     let status = segmentStates[value];
     let chiffre = document.querySelector(digitId);
+    if (!chiffre) return;
     let segments = chiffre.querySelectorAll(".segment");
-
-    segments.forEach(function(segment, index) {
-        // Si le tableau indique 1, on affiche le segment en retirant 'off'
+    segments.forEach((segment, index) => {
         if (status[index] === 1) {
             segment.classList.remove("off");
-        }
-        else {
+        } else {
             segment.classList.add("off");
         }
     });
 }
 
-
-
-function Time(){
-    // Récupere l'heure actuelle
+function updateTime() {
     let now = new Date();
     let hours = now.getHours();
     let minutes = now.getMinutes();
-
-    // Affichage des chiffres de l'heure
     updateDigit("#hours-tens", Math.floor(hours / 10));
     updateDigit("#hours-units", hours % 10);
     updateDigit("#minutes-tens", Math.floor(minutes / 10));
     updateDigit("#minutes-units", minutes % 10);
 }
 
-function init(){
-    // Création des 4 emplacements de l'horloge
+let startTime = Date.now();
+
+function updateChrono() {
+    let now = Date.now();
+    let diff = now - startTime;
+    let totalSeconds = Math.floor(diff / 1000);
+    let minutes = Math.floor(totalSeconds / 60);
+    let seconds = totalSeconds % 60; 
+    let displayMinutes = String(minutes).padStart(2, "0");
+    let displaySeconds = String(seconds).padStart(2, "0");
+    let chronoElement = document.querySelector("#chrono");
+    if (chronoElement) {
+        chronoElement.textContent = displayMinutes + ":" + displaySeconds;
+    }
+}
+
+function initFooterPhoneEvents() {
+    let phoneNumbers = document.querySelectorAll('.phone-number');
+    let ringtone = document.getElementById('ringtone');
+    phoneNumbers.forEach(phone => {
+        phone.addEventListener('copy', () => {
+            let numCopie = window.getSelection().toString().trim();
+            setTimeout(() => {
+                let confirmation = prompt(`Si vous voulez appeler ce numéro : ${numCopie}, entrez-le de nouveau dans le champ ci-dessous puis validez`);
+                
+                if (confirmation === null) return;
+
+                if (confirmation === numCopie) {
+                    console.log(`Vous appelez ce numéro : ${numCopie}`);
+                    if (ringtone) {
+                        ringtone.play();
+                        setTimeout(() => {
+                            ringtone.pause();
+                            ringtone.currentTime = 0;
+                        }, 5000);
+                    }
+                } else {
+                    handleUserInputErrors("Le numéro saisi ne correspond pas au numéro copié.", "Vérification Appel");
+                    alert("Erreur : Saisie incorrecte.");
+                }
+            }, 100);
+        });
+    });
+}
+
+function main() {
     addSegments("#hours-tens");
     addSegments("#hours-units");
     addSegments("#minutes-tens");
     addSegments("#minutes-units");
-}
-
-let startTime = Date.now();
-
-function chrono() {
-    let now = Date.now();
-    let diff = now - startTime;
-
-    let totalseconds = Math.floor(diff / 1000);
-    let minutes = Math.floor(totalseconds / 60);
-    let seconds = totalseconds % 60; 
-    
-    let displayMinutes = String(minutes).padStart(2, "0");
-    let displaySeconds = String(seconds).padStart(2, "0");
-
-    document.querySelector("#chrono").textContent = displayMinutes + ":" + displaySeconds;
-}
-
-function main() {
-    // 1. Initialise l'horloge et le chrono
-    init(); 
-    Time();
-    chrono();
-
-    // 2. Initialise le système de chargement des liens
+    updateTime();
+    updateChrono();
     initNavigation();
-
-    // 3. Gère la disparition du loader quand on ARRIVE sur la page
-    window.addEventListener('load', () => {
-        const loader = document.getElementById('loader-overlay');
-        if (loader) {
-            setTimeout(() => {
-                loader.style.display = 'none';
-            }, 500); // On cache le loader après 0.5s de présence
-        }
-    });
-
-    // 4. Lance les répétitions
-    setInterval(Time, 1000);
-    setInterval(chrono, 1000);
+    initFooterPhoneEvents();
+    initPlagiarismWarning();
+    setInterval(updateTime, 1000);
+    setInterval(updateChrono, 1000);
 }
 
 main();
