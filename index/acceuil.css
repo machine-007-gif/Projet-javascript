@@ -70,7 +70,7 @@
 }
 
 .slogan-image:hover {
-    transform: scale(1.02); /* Petit effet de zoom au survol */
+    transform: scale(2); /* Petit effet de zoom au survol */
 }
 
 .presentation-section {
@@ -103,6 +103,85 @@
 
 .video-section h1 {
     margin-top: 70px;
+}
+
+.actualite p {
+    margin-top: -40px;
+    opacity: 55%;
+    margin-bottom: 50px;
+}
+
+.cards-container {
+    display: flex;
+    justify-content: space-between; /* Espace uniforme entre les cartes */
+    gap: 30px; /* Espace fixe entre les cartes */
+    max-width: 1200px; /* Largeur maximale pour les grands écrans */
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+/* --- STYLE DE LA CARTE --- */
+.news-card {
+    background-color: #ffffff;
+    border: 1px solid #eeeeee; /* Bordure très fine */
+    border-radius: 20px; /* Coins très arrondis */
+    padding: 30px;
+    flex: 1; /* Chaque carte prend une part égale de la largeur */
+    display: flex;
+    flex-direction: column; /* Aligne le contenu de haut en bas */
+    justify-content: space-between; /* Pousse la date tout en bas */
+    transition: box-shadow 0.3s ease; /* Effet au survol */
+}
+
+/* Effet de survol léger */
+.news-card:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* --- EN-TÊTE DE LA CARTE (Icône + Titre) --- */
+.card-header {
+    display: flex;
+    align-items: flex-start; /* Aligne l'icône en haut du titre */
+    gap: 15px; /* Espace entre l'icône et le titre */
+    margin-bottom: 15px;
+}
+
+.card-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    min-width: 50px; /* Empêche l'icône de rétrécir */
+    border-radius: 10px; /* Arrondi léger */
+}
+
+/* Couleurs spécifiques pour les fonds d'icônes */
+.icon-orange { background-color: #fff3e0; }
+.icon-blue { background-color: #e3f2fd; }
+.icon-green { background-color: #e8f5e9; }
+
+/* --- TEXTES DE LA CARTE --- */
+.card-title {
+    margin: 0;
+    font-size: 18px;
+    color: #000000;
+    font-weight: 700;
+}
+
+.card-text {
+    font-size: 14px;
+    color: #666666; /* Gris pour le texte secondaire */
+    line-height: 1.6; /* Plus d'espace entre les lignes */
+    margin: 0 0 20px 0;
+}
+
+.card-date {
+    font-size: 12px;
+    color: #999999;
+    font-weight: bold;
+    align-self: flex-start; /* Aligne la date à gauche */
 }
 
 /* Animation de translation (Droite -> Gauche -> Centre) */
