@@ -22,8 +22,6 @@ function grattage() {
     canvases.forEach(c => {
         let ctx = c.getContext("2d");
         
-        // On force le calcul de la taille après un léger délai ou au chargement
-        // pour être sûr que offsetWidth ne soit pas égal à 0
         const initCanvas = () => {
             c.width = c.offsetWidth;
             c.height = c.offsetHeight;
@@ -41,26 +39,19 @@ function grattage() {
         initCanvas();
 
         c.addEventListener("mousemove", (e) => {
-            if (e.buttons === 1) {
-                // CALCUL CRUCIAL : On soustrait la position du canvas dans la page
-                let rect = c.getBoundingClientRect();
-                let x = e.clientX - rect.left;
-                let y = e.clientY - rect.top;
+            let rect = c.getBoundingClientRect();
+            let x = e.clientX - rect.left;
+            let y = e.clientY - rect.top;
 
-                ctx.beginPath();
-                // On utilise les coordonnées locales (x, y) et non globales (clientX)
-                ctx.arc(x, y, 15, 0, Math.PI * 2); 
-                ctx.fill();
-            }
+            ctx.beginPath();
+            ctx.arc(x, y, 15, 0, Math.PI * 2); 
+            ctx.fill();
         });
     });
 }
 
 function main() {
-    // On attend que la fenêtre soit totalement prête pour avoir les bonnes tailles CSS
-    // window.addEventListener('load', grattage);
     grattage();
-    
 }
 
 main();
