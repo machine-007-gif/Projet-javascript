@@ -1,36 +1,87 @@
 /* --- BOUTON ÉDITION --- */
 .btn-edition {
-    padding: 10px 20px;
-    background-color: black;
-    color: white;
-    border: none;
-    border-radius: 30px; /* Plus arrondi pour le style Trackwear */
-    cursor: pointer;
+    /* Positionnement */
     position: absolute;
-    top: 120px;
-    right: 50px;
-    font-weight: 600;
-    transition: background-color 0.3s;
+    top: 110px;
+    right: 30px;
     z-index: 100;
+
+    /* Style visuel */
+    padding: 10px 25px;
+    background-color: #000000; /* Noir profond */
+    color: #ffffff;
+    font-family: 'Inter', sans-serif; /* Pour matcher ton site */
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase; /* Donne un aspect plus "bouton de menu" */
+    letter-spacing: 0.5px;
+    
+    /* Bordures et arrondis */
+    border: 2px solid #000000;
+    border-radius: 50px; /* Forme pilule très moderne */
+    
+    /* Interactions */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* Classe qui sera ajoutée par le JS */
-.btn-edition.active {
-    background-color: #ffcc00; /* Jaune en mode édition */
-    color: black;
+/* Effet au survol */
+.btn-edition:hover {
+    background-color: #ffffff;
+    color: #000000;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px); /* Petit soulèvement */
+}
+
+/* Style quand le mode édition est actif (via ta classe JS) */
+.active {
+    /* Positionnement */
+    position: absolute;
+    top: 110px;
+    right: 30px;
+    z-index: 100;
+
+    /* Style visuel */
+    padding: 10px 25px;
+    background-color: gray; /* Noir profond */
+    color: #ffffff;
+    font-family: 'Inter', sans-serif; /* Pour matcher ton site */
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase; /* Donne un aspect plus "bouton de menu" */
+    letter-spacing: 0.5px;
+    
+    /* Bordures et arrondis */
+    border: 2px solid gray;
+    border-radius: 50px; /* Forme pilule très moderne */
+    
+    /* Interactions */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.active:hover {
+    background-color: #ffffff;
+    color: gray;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px); /* Petit soulèvement */
 }
 
 /* --- SECTION PHOTO --- */
-.photo-section {
+.card-section {
     display: flex;
     align-items: flex-start;
     justify-content: center;
+    align-items: center;
     gap: 40px;
     margin-top: 80px;
     padding: 20px;
 }
 
 .card {
+    position: relative;
     display: flex;
     flex-direction: column;
     border: 1px solid black;
@@ -76,6 +127,37 @@
     border-bottom: 1px solid black;
 }
 
+.delete-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #ff4d4d; /* Rouge vif */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    display: none; /* Masqué par défaut */
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+    transition: transform 0.2s, background-color 0.2s;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    z-index: 10;
+}
+
+.delete-btn:hover {
+    background-color: #cc0000;
+    transform: scale(1.1);
+}
+
+/* On affiche le bouton uniquement quand la carte est en mode édition */
+.card.editing .delete-btn {
+    display: flex;
+}
+
 .member-name {
     margin: 10px 0 5px 0;
     font-weight: 800;
@@ -99,4 +181,40 @@
     font-size: 15px;
     font-weight: 600;
     white-space: nowrap;
+}
+
+.add {
+    width: 60px;
+    height: 60px;
+    display: none; /* Masqué par défaut, affiché via le JS en mode édition */
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border: 2px solid #222; /* Bordure sombre et épaisse */
+    background-color: white;
+    color: #222;
+    cursor: pointer;
+    transition: all 0.3s ease; /* Animation fluide pour tous les changements */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Ombre légère pour le relief */
+    z-index: 1000;
+}
+
+/* Style de l'icône + */
+.add-icone {
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 0; /* Centre parfaitement le + verticalement */
+    margin-top: -2px; /* Ajustement visuel précis */
+}
+
+/* Effets au survol (Hover) */
+.add:hover {
+    background-color: #222; /* Inversion des couleurs */
+    color: white;
+    transform: scale(1.1) rotate(90deg); /* Grossit légèrement et tourne */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.add:active {
+    transform: scale(0.95); /* Petit effet de pression */
 }

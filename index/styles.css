@@ -5,7 +5,7 @@
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
-    background-color: #fdfdfd; /* Blanc cassé très léger */
+    background-color: #fafafa; /* Blanc cassé très léger */
 }
 
 /* --- LE LOADER (Écran de chargement) --- */
