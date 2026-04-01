@@ -1,0 +1,245 @@
+/* --- SECTION SLOGAN (Haut de page) --- */
+
+.slogan-section {
+    padding: 40px 5%;
+    background-color: #fafafa; /* Fond gris très clair */
+}
+
+.slogan-container {
+    height: 450px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ffffff;
+    border-radius: 30px; /* Coins arrondis */
+    padding: 0 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Ombre légère */
+    overflow: hidden;
+    border: 1px solid #eeeeee;
+}
+
+/* Zone de texte à gauche du slogan */
+.text-wrapper {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.text-wrapper p {
+    opacity: 55%;
+    margin-top: 80px;
+}
+
+/* Bouton d'action (CTA) */
+.text-wrapper button {
+    margin-top: 20px;
+    padding: 10px 25px;
+    border-radius: 30px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+/* Style du texte animé (Slogan) */
+.slogan-text {
+    width: 70%;
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: 28px;
+    color: #1a1a1a;
+    line-height: 1.3;
+    text-align: center;
+    margin-left: 60px;
+    min-height: 2.6em; /* Évite que le reste de la page bouge pendant l'anim */
+}
+
+/* Zone de l'image à droite du slogan */
+.image-wrapper {
+    flex: 0 0 500px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slogan-image {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 10px 10px 0px #f0f0f0; /* Effet de contour décalé */
+    transition: transform 0.5s ease;
+}
+
+.slogan-image:hover {
+    transform: scale(2); /* Zoom x2 au survol */
+}
+
+/* --- SECTION PRÉSENTATION (Texte et Vidéo) --- */
+
+.presentation-section {
+    padding: 40px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    background: #ffffff;
+    border-radius: 30px;
+    padding: 0 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eeeeee;
+}
+
+.presentation-section h1 {
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+/* Zone de la vidéo YouTube */
+.video-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.video-section h1 {
+    margin-top: 70px;
+}
+
+/* --- SECTION ACTUALITÉS (Cartes) --- */
+
+.actualite p {
+    margin-top: -40px;
+    opacity: 55%;
+    margin-bottom: 50px;
+}
+
+.cards-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+/* Style individuel de chaque carte de news */
+.news-card {
+    background-color: #ffffff;
+    border: 1px solid #eeeeee;
+    border-radius: 20px;
+    padding: 30px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: box-shadow 0.3s ease;
+}
+
+.news-card:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+.card-header {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+/* Style de la petite icône colorée dans la carte */
+.card-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+}
+
+/* Couleurs des icônes news */
+.icon-orange { background-color: #fff3e0; }
+.icon-blue { background-color: #e3f2fd; }
+.icon-green { background-color: #e8f5e9; }
+
+.card-title {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.card-text {
+    font-size: 14px;
+    color: #666666;
+    line-height: 1.6;
+}
+
+.card-date {
+    font-size: 12px;
+    color: #999999;
+    font-weight: bold;
+}
+
+/* --- ANIMATIONS (JavaScript) --- */
+
+/* Animation de mouvement de gauche à droite du slogan */
+@keyframes shakeAndSlide {
+    0% { transform: translateX(0); }
+    30% { transform: translateX(50px); }
+    60% { transform: translateX(-50px); }
+    100% { transform: translateX(0); }
+}
+
+.animate-move {
+    animation: shakeAndSlide 1.5s ease-in-out forwards;
+}
+
+/* Animation d'apparition des mots un par un */
+.word {
+    display: inline-block;
+    margin-right: 8px;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.5s ease;
+}
+
+.word.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- FENÊTRE MODALE (Confirmation personnalisée) --- */
+
+#custom-confirm {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: none; /* Cachée par défaut */
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.modal-buttons button {
+    padding: 10px 25px;
+    border: 2px solid black;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+#btn-vrai { background: black; color: white; }
+#btn-faux { background: white; color: black; }

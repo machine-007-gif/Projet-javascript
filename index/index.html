@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="acceuil.css">
     <script src="script.js" defer></script>
+    <script src="acceuil.js" defer></script>
     <title>Accueil</title>
 </head>
 <body>
@@ -40,15 +42,68 @@
             </div>
         </nav>
     </header>
-    <div id="custom-confirm" class="modal-hidden">
-        <div class="modal-content">
-            <p>Souhaitez-vous vraiment naviguer vers la présentation de l'équipe ?</p>
-            <div class="modal-buttons">
-                <button id="btn-vrai">VRAI</button>
-                <button id="btn-faux">FAUX</button>
+
+    <section class="slogan-section">
+        <div class="slogan-container">
+            <div class="text-wrapper">
+                <h4 id="slogan-animated" class="slogan-text"></h4>
+                <p>Profitez de vos moments en famille a la plage tout en securité. <br>Retouvez nos produits si dessous.</p>
+                <a href="../produits/produits.html" class="nav-link cta-link">
+                    <button>Découvrez les produits</button>
+                </a>
+            </div>
+            <div class="image-wrapper">
+                <img src="../assets/images/tracker.png" alt="Tracker" class="slogan-image">
             </div>
         </div>
-    </div>
+    </section>
+
+    <section class="presentation-section">
+        <div>
+            <h1>Presentation   de   Tracwear :</h1>
+            <p>Chaque été, des milliers de parents vivent l'angoisse d'un enfant qui s'éloigne sur une plage bondée.<br> Trackwear change la donne avec le premier maillot de bain intelligent. 
+                Nous combinons textile anti-UV de haute qualité et technologie de géolocalisation discrète pour offrir une double protection. <br>Via notre application mobile, gardez un œil sur vos enfants en temps réel et recevez une alerte instantanée s'ils sortent de votre périmètre de sécurité. <br><br>
+                <strong>Notre promesse :</strong> Offrir aux enfants la liberté d'explorer et aux parents la sérénité de profiter.<br><br>
+                <strong>Trackwear :</strong> Ne les perdez plus jamais de vue.</p>
+        </div>
+
+        <div class="video-section">
+            <h1>Découvrez notre vidéo de présentation :</h1>
+            <div class="video-wrapper">
+               <iframe width="560" height="315" src="https://www.youtube.com/embed/kBzwgoLdyms" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>
+        <div class="actualite">
+            <h1>Fils d'actualités</h1>
+            <p>Retrouver ci-dessous les dernières actualités de Trackwear</p>
+        </div>
+        <div class="cards-container">
+            <article class="news-card">
+                <div class="card-header">
+                    <span class="card-icon icon-orange">🤝</span>
+                    <h3 class="card-title">Partenariat avec la SNSM : "Plages Sûres 2026"</h3>
+                </div>
+                <p class="card-text">Trackwear annonce une collaboration exclusive avec les sauveteurs en mer pour l'été prochain. Dans le cadre de l'opération "Zéro Enfant Perdu"</p>
+                <time class="card-date" datetime="2026-03-26">26/03/2026</time>
+            </article>
+            <article class="news-card">
+                <div class="card-header">
+                    <span class="card-icon icon-blue">🌊</span>
+                    <h3 class="card-title">Lancement de la gamme "Océan Responsable"</h3>
+                </div>
+                <p class="card-text">Parce que protéger les enfants, c'est aussi protéger leur futur, Trackwear lance une nouvelle collection de maillots connectés fabriqués à partir de filets de pêche recyclés.</p>
+                <time class="card-date" datetime="2025-12-10">10/12/2025</time>
+            </article>
+            <article class="news-card">
+                <div class="card-header">
+                    <span class="card-icon icon-green">🏆</span>
+                    <h3 class="card-title">Prix de l'Innovation au CES de Las Vegas</h3>
+                </div>
+                <p class="card-text">La French Tech est à l'honneur ! Trackwear vient de recevoir le prestigieux "Innovation Award" dans la catégorie Wearable Technologies.</p>
+                <time class="card-date" datetime="2025-07-26">26/07/2025</time>
+            </article>
+        </div>
+    </section>
 
     <footer>
         <div class="footer-content">
