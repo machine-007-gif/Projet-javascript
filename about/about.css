@@ -19,14 +19,14 @@
 }
 /*rectangle de notre histoire*/
 .rec-histoire{
-    background-color:rgb(255, 201, 201);
+    background-color:#ffffff;
     color: black;
     border-radius: 10px;
     margin: 20px;
 }
 /*rectangle du trackeur*/
 .rec-trackeur{
-    background-color:rgb(252, 175, 127);
+    background-color:#ffffff;
     color: black;
     border-radius: 10px;
     margin: 20px;
