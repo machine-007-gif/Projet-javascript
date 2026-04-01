@@ -10,7 +10,7 @@
     <title>Notre Équipe</title>
 </head>
 <body>
-     <div id="loader-overlay">
+    <div id="loader-overlay">
         <div class="loader-bar"></div>
         <div id="loader-text">Chargement...</div>
     </div>
@@ -44,36 +44,43 @@
     </header>
 
     <div class="edition">
-        <button>Mode Edition</button>
+        <button class="btn-edition">Mode Edition</button>
     </div>
 
     <section class="photo-section">
-        <div class="card 1">
+        <div class="card">
             <div class="presentation">
-                <img src="../assets/images/DSC01871.jpg" alt="Thomas">
-                <h2>Thomas Ollivier</h2>
+                <div class="calque">
+                    <img src="../assets/images/DSC01871.jpg" alt="Thomas">
+                    <canvas></canvas>
+                </div>
+                <h2 class="member-name">Thomas Ollivier</h2>
                 <p>Co-fondateur et Directeur Artistique</p>
             </div>
             <div class="skils">
-                <p>Design Graphique</p>
-                <p>UI/UX Design</p>
-                <p>HTML</p>
-                <p>CSS</p>
-                <p>JavaScript</p>
+                <span class="badge">Design Graphique</span>
+                <span class="badge">UI/UX Design</span>
+                <span class="badge">HTML</span>
+                <span class="badge">CSS</span>
+                <span class="badge">JavaScript</span>
             </div>
         </div>
-        <div class="card 2">
+
+        <div class="card">
             <div class="presentation">
-                <img src="../assets/images/DSC02134.jpg" alt="Marine">
-                <h2>Marine</h2>
+                <div class="calque">
+                    <img src="../assets/images/DSC02134.jpg" alt="Marine">
+                    <canvas></canvas>
+                </div>
+                <h2 class="member-name">Marine</h2>
                 <p>Responsable Marketing</p>
             </div>
             <div class="skils">
-                <p>Stratégie Marketing</p>
-                <p>Designer</p>
-                <p>HTML</p>
-                <p>CSS</p>
-                <p>JavaScript</p>
+                <span class="badge">Stratégie Marketing</span>
+                <span class="badge">Designer</span>
+                <span class="badge">HTML</span>
+                <span class="badge">CSS</span>
+                <span class="badge">JavaScript</span>
             </div>
         </div>
     </section>

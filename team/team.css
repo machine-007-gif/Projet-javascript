@@ -1,58 +1,102 @@
-button {
-    padding: 10px;
+/* --- BOUTON ÉDITION --- */
+.btn-edition {
+    padding: 10px 20px;
     background-color: black;
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 30px; /* Plus arrondi pour le style Trackwear */
     cursor: pointer;
     position: absolute;
-    top: 100px;
+    top: 120px;
     right: 50px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+    z-index: 100;
 }
 
+/* Classe qui sera ajoutée par le JS */
+.btn-edition.active {
+    background-color: #ffcc00; /* Jaune en mode édition */
+    color: black;
+}
+
+/* --- SECTION PHOTO --- */
 .photo-section {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    margin-top: 50px;
+    gap: 40px;
+    margin-top: 80px;
+    padding: 20px;
 }
 
 .card {
     display: flex;
     flex-direction: column;
-    margin-right: 30px;
-    border: 2px solid black;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-.presentation {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-bottom: 1px solid black;
-}
-
-.presentation img {
-    width: 150px;
-    border-radius: 100px;
-}
-
-.skils {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 10px;
+    border: 1px solid black;
+    padding: 30px;
+    border-radius: 20px;
+    background: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
     width: 300px;
 }
 
-.skils p {
-    margin-right: 20px;
-    padding: 10px;
-    background-color: black;
+/* --- LE CALQUE (GRATTAGE) --- */
+.calque {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin-bottom: 20px;
+}
+
+.calque img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%; /* Image ronde */
+    object-fit: cover;
+    display: block;
+}
+
+.calque canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%; /* Le calque est rond comme l'image */
+}
+
+/* --- PRÉSENTATION TEXTE --- */
+.presentation {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid black;
+}
+
+.member-name {
+    margin: 10px 0 5px 0;
+    font-weight: 800;
+    font-size: 22px;
+}
+
+/* --- SKILLS (BADGES) --- */
+.skils {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding-top: 20px;
+}
+
+.badge {
+    background-color: #707a82; /* Gris bleuté de l'image */
     color: white;
-    border-radius: 10px;
-    font-size: 12px;
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    white-space: nowrap;
 }
