@@ -30,11 +30,21 @@
     color: black;
     border-radius: 10px;
     margin: 20px;
+
+}
+.rec-trackeur p{
+    margin: 0;
+    font-size: 20px; 
+    line-height: 1;
+    letter-spacing: 0.5px;
+    line-height: 30px;
+    padding: 25px;
 }
 /*modif image du trackeur*/
 #trackeur{
     border-radius: 10px;
-    margin: 20px;  
+    margin: 20px;
+    width: 400px;  
 }
 /*met tout sur la meme ligne */
 .ligne {
