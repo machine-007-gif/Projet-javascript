@@ -1,21 +1,19 @@
-// On récupère les éléments
-const modal = document.getElementById("maModale");
-const btn = document.getElementById("btn-securite");
-const span = document.getElementsByClassName("fermer")[0];
-
-// Quand on clique sur le rectangle, on affiche la modale
-btn.onclick = function() {
+// 1. Fonction pour OUVRIR une modale spécifique
+function ouvrirModale(idDeLaModale) {
+    const modal = document.getElementById(idDeLaModale);
     modal.style.display = "block";
 }
 
-// Quand on clique sur le X, on ferme la modale
-span.onclick = function() {
+// 2. Fonction pour FERMER une modale spécifique
+function fermerModale(idDeLaModale) {
+    const modal = document.getElementById(idDeLaModale);
     modal.style.display = "none";
 }
 
-// Si on clique n'importe où en dehors de la boîte blanche, on ferme aussi
+// 3. Fermer si on clique en dehors de la boîte blanche
 window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
+    // Si l'élément cliqué a la classe "modal", on le cache
+    if (event.target.classList.contains('modal')) {
+        event.target.style.display = "none";
     }
 }
