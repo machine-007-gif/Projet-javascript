@@ -63,44 +63,43 @@
         <h1>Nos Missions :</h1>
         
         <div class="ligne">
-        <div class="boite-animée" id="securite">
-            <p class="Missions">Sécurité</p>
-            <p class="texte-cache">Cliquez pour en savoir plus</p>
-        </div>
-        <div id="modal-secu" class="modal">
-            <div class="modal-content">
-                <span class="fermer">&times;</span>
-                <h2>Sécurité & Smart-Fence</h2>
-                <p>Notre technologie Smart-Fence crée un périmètre de sécurité invisible. Recevez une alerte instantanée sur votre mobile dès que votre enfant s'éloigne.</p>
+            <div class="boite-animée" id="securite" onclick="ouvrirModale('modal-secu')">
+                <p class="Missions">Sécurité</p>
+                <p class="texte-cache">Cliquez pour en savoir plus</p>
             </div>
-        </div>
-
-        <div class="boite-animée" id="Exploration">
-            <p class="Missions">Exploration</p>
-            <p class="texte-cache">Cliquez pour en savoir plus</p>
-        </div>
-
-        <div id="modal-exp" class="modal">
-            <div class="modal-content">
-                <span class="fermer">&times;</span>
-                <h2>Sécurité & Smart-Fence</h2>
-                <p>Nous croyons que l'aventure forge le caractère. Nos maillots permettent aux enfants de découvrir le monde en toute autonomie, sous votre aile digitale.</p>
+            <div id="modal-secu" class="modal">
+                <div class="modal-content">
+                    <span class="fermer" onclick="fermerModale('modal-secu')">&times;</span>
+                    <h2>Sécurité & Smart-Fence</h2>
+                    <p>Notre technologie Smart-Fence crée un périmètre de sécurité invisible. Recevez une alerte instantanée sur votre mobile dès que votre enfant s'éloigne.</p>
+                </div>
             </div>
-        </div>
 
-        <div class="boite-animée" id="Innovation">
-            <p class="Missions">Innovation</p>
-            <p class="texte-cache">Cliquez pour en savoir plus</p>
-        </div>
-        <div id="modal-innov" class="modal">
-            <div class="modal-content">
-                <span class="fermer">&times;</span>
-                <h2>Sécurité & Smart-Fence</h2>
-                <p>Un concentré de tech dans un textile anti-UV ultra-confort. Nos traceurs sont 100% étanches, sans ondes nocives et rechargeables par simple induction.</p>
+            <div class="boite-animée" id="Exploration" onclick="ouvrirModale('modal-exp')">
+                <p class="Missions">Exploration</p>
+                <p class="texte-cache">Cliquez pour en savoir plus</p>
+            </div>
+            <div id="modal-exp" class="modal">
+                <div class="modal-content">
+                    <span class="fermer" onclick="fermerModale('modal-exp')">&times;</span>
+                    <h2>L'Aventure en Confiance</h2>
+                    <p>Nous croyons que l'aventure forge le caractère. Nos maillots permettent aux enfants de découvrir le monde en toute autonomie, sous votre aile digitale.</p>
+                </div>
+            </div>
+
+            <div class="boite-animée" id="Innovation" onclick="ouvrirModale('modal-innov')">
+                <p class="Missions">Innovation</p>
+                <p class="texte-cache">Cliquez pour en savoir plus</p>
+            </div>
+            <div id="modal-innov" class="modal">
+                <div class="modal-content">
+                    <span class="fermer" onclick="fermerModale('modal-innov')">&times;</span>
+                    <h2>Haute Technologie</h2>
+                    <p>Un concentré de tech dans un textile anti-UV ultra-confort. Nos traceurs sont 100% étanches, sans ondes nocives et rechargeables par simple induction.</p>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
     <footer>
         <div class="footer-content">
