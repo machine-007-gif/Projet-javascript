@@ -175,6 +175,16 @@ h1 a {
     text-align: right;
 }
 
+.hamburger {
+    display: none;
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #000;
+    padding: 10px;
+}
+
 /* --- LIENS DU MENU --- */
 
 .links { display: flex; list-style: none; margin: 0; }
@@ -243,4 +253,123 @@ footer {
     font-weight: 700;
     color: #2df; /* Couleur bleue cyan */
     text-decoration: underline;
+}
+
+/* =========================================
+   RESPONSIVE DESIGN (Global - Header & Footer)
+========================================= */
+
+/* --- TABLETTES (Largeur max: 1024px) --- */
+@media screen and (max-width: 1024px) {
+    /* On passe la barre de navigation sur deux lignes : Logo en haut, Liens en bas */
+    nav {
+        flex-direction: column;
+        gap: 25px;
+        padding: 20px 2%;
+    }
+    
+    .links {
+        flex-wrap: wrap; /* Autorise les liens à passer à la ligne */
+        justify-content: center;
+        padding: 0;
+    }
+    
+    /* On réduit l'espace entre les liens (initialement à 30px) */
+    .links li {
+        margin: 10px 15px; 
+    }
+}
+
+/* --- SMARTPHONES (Largeur max: 768px) --- */
+@media screen and (max-width: 768px) {
+    
+    /* 1. HEADER : Sépare le titre Trackwear du boitier chronomètre */
+    .logo-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    h1 {
+        font-size: 32px; /* Réduit un peu la taille du titre */
+    }
+
+    /* 2. MENU : Empile les liens verticalement pour le tactile */
+    .hamburger {
+        display: block; /* On affiche l'icône en haut à droite */
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+    .links {
+        display: none; /* On cache les liens par défaut */
+        flex-direction: column;
+        width: 100%;
+        background-color: #fff;
+        position: absolute;
+        top: 80px; /* Ajuste selon la hauteur de ton header */
+        left: 0;
+        padding: 20px 0;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        z-index: 1000;
+    }
+
+    /* Cette classe sera ajoutée via JavaScript au clic */
+    .links.show {
+        display: flex; 
+    }
+    
+    /* On assure que les liens prennent toute la largeur pour cliquer facilement */
+    .links li {
+        margin: 10px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .links a {
+        display: block;
+        padding: 10px; /* Zone de clic plus grande pour les doigts */
+    }
+
+    /* 3. FOOTER : Empile les campus et ajoute un séparateur */
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .campus {
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Ligne gris clair */
+        padding-bottom: 15px;
+    }
+
+    .campus:last-child {
+        border-bottom: none; /* Retire la ligne sous le dernier campus */
+    }
+}
+
+/* --- TRÈS PETITS ÉCRANS (Largeur max: 480px) --- */
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 26px; /* Titre encore un peu plus petit */
+    }
+
+    /* On réorganise le boîtier noir de l'horloge/chrono pour qu'il ne dépasse pas de l'écran */
+    .time {
+        flex-direction: column;
+        padding: 10px;
+        gap: 8px;
+    }
+
+    .chrono-container {
+        border-left: none; /* Enlève la barre verticale de séparation */
+        border-top: 1px solid rgba(255, 255, 255, 0.2); /* Remplace par une barre horizontale */
+        margin-left: 0;
+        padding-left: 0;
+        padding-top: 10px;
+        width: 100%;
+        justify-content: center;
+    }
 }

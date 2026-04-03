@@ -165,6 +165,27 @@ function initFooterPhoneEvents() {
     });
 }
 
+function menu() {
+    document.addEventListener("DOMContentLoaded", () => {
+    const hamburger = document.getElementById("hamburger");
+    const navLinks = document.getElementById("nav-links");
+
+    if (hamburger && navLinks) {
+        hamburger.addEventListener("click", () => {
+            // Ajoute ou enlève la classe 'show'
+            navLinks.classList.toggle("show");
+            
+            // Petit bonus : change l'icône en 'X' quand c'est ouvert
+            if (navLinks.classList.contains("show")) {
+                hamburger.innerHTML = "&times;"; // Une croix
+            } else {
+                hamburger.innerHTML = "&#9776;"; // Les 3 barres
+            }
+        });
+    }
+});
+}
+
 // --- LANCEMENT GÉNÉRAL ---
 function main() {
     // 1. On prépare les chiffres de l'horloge
@@ -183,6 +204,8 @@ function main() {
     // 3. On demande au site de se mettre à jour toutes les secondes (1000ms)
     setInterval(updateTime, 1000);
     setInterval(updateChrono, 1000);
+
+    menu();
 }
 
 // Déclenchement du script

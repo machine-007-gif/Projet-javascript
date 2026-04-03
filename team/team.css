@@ -74,7 +74,7 @@
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    align-items: center;
+    flex-wrap: wrap;
     gap: 40px;
     margin-top: 80px;
     padding: 20px;
@@ -217,4 +217,79 @@
 
 .add:active {
     transform: scale(0.95); /* Petit effet de pression */
+}
+
+/* =========================================
+   RESPONSIVE DESIGN (Tablettes & Mobiles)
+========================================= */
+
+/* --- TABLETTES (Largeur max: 1024px) --- */
+@media screen and (max-width: 1024px) {
+    .card-section {
+        gap: 20px; /* On réduit l'écart entre les cartes */
+    }
+}
+
+/* --- SMARTPHONES (Largeur max: 768px) --- */
+@media screen and (max-width: 768px) {
+    
+    /* 1. Gestion du bouton Édition */
+    .edition {
+        display: flex;
+        justify-content: center;
+        margin-top: 140px; /* Laisse de la place sous ton header/nav qui va s'agrandir */
+        margin-bottom: 20px;
+    }
+
+    .btn-edition, .active {
+        position: static; /* Annule la position absolute pour mobile */
+        width: 80%; /* Le bouton prend une bonne largeur pour être cliquable */
+        max-width: 300px;
+        text-align: center;
+    }
+
+    /* 2. Gestion de la section des cartes */
+    .card-section {
+        margin-top: 20px;
+        padding: 10px;
+        flex-direction: column; /* Empile les cartes verticalement */
+        align-items: center;
+    }
+
+    .card {
+        width: 100%; /* Prend toute la largeur disponible... */
+        max-width: 320px; /* ...sans jamais dépasser 320px */
+        margin-bottom: 20px;
+    }
+
+    /* 3. Gestion du Footer (Au cas où ce ne soit pas géré dans styles.css) */
+    .footer-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .campus {
+        width: 100%;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 15px;
+    }
+    
+    .campus:last-child {
+        border-bottom: none;
+    }
+}
+
+/* --- TRES PETITS ÉCRANS (Largeur max: 400px) --- */
+@media screen and (max-width: 400px) {
+    .calque, .calque img, .calque canvas {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .member-name {
+        font-size: 18px;
+    }
 }
