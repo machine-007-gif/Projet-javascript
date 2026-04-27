@@ -295,40 +295,42 @@ footer {
 
     /* 2. MENU : Empile les liens verticalement pour le tactile */
     .hamburger {
-        display: block; /* On affiche l'icône en haut à droite */
+        display: block;
         position: absolute;
         top: 20px;
         right: 20px;
+        z-index: 1100; /* Au-dessus du menu ouvert */
     }
 
     .links {
-        display: none; /* On cache les liens par défaut */
+        display: none;
         flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
         width: 100%;
+        height: 100vh;         /* Toute la hauteur de l'écran */
         background-color: #fff;
-        position: absolute;
-        top: 80px; /* Ajuste selon la hauteur de ton header */
+        position: fixed;       /* Fixé, même si on a scrollé */
+        top: 0;
         left: 0;
-        padding: 20px 0;
-        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
         z-index: 1000;
     }
 
-    /* Cette classe sera ajoutée via JavaScript au clic */
     .links.show {
-        display: flex; 
+        display: flex;
     }
-    
-    /* On assure que les liens prennent toute la largeur pour cliquer facilement */
+
     .links li {
-        margin: 10px 0;
-        width: 100%;
+        margin: 0;
+        width: auto;           /* Largeur naturelle du mot */
         text-align: center;
     }
 
     .links a {
-        display: block;
-        padding: 10px; /* Zone de clic plus grande pour les doigts */
+        display: inline-block; /* Le soulignement suit la taille du mot */
+        padding: 10px;
+        font-size: 22px;
     }
 
     /* 3. FOOTER : Empile les campus et ajoute un séparateur */

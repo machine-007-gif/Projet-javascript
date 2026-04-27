@@ -226,70 +226,61 @@
 /* --- TABLETTES (Largeur max: 1024px) --- */
 @media screen and (max-width: 1024px) {
     .card-section {
-        gap: 20px; /* On réduit l'écart entre les cartes */
+        gap: 20px;
+    }
+
+    .btn-edition, .active {
+        top: 90px;
+        right: 20px;
     }
 }
 
 /* --- SMARTPHONES (Largeur max: 768px) --- */
 @media screen and (max-width: 768px) {
-    
-    /* 1. Gestion du bouton Édition */
+
+    /* Bouton édition centré sous le header */
     .edition {
         display: flex;
         justify-content: center;
-        margin-top: 140px; /* Laisse de la place sous ton header/nav qui va s'agrandir */
+        margin-top: 20px;
         margin-bottom: 20px;
     }
 
     .btn-edition, .active {
-        position: static; /* Annule la position absolute pour mobile */
-        width: 80%; /* Le bouton prend une bonne largeur pour être cliquable */
+        position: static;
+        width: 80%;
         max-width: 300px;
         text-align: center;
     }
 
-    /* 2. Gestion de la section des cartes */
+    /* Cartes empilées */
     .card-section {
-        margin-top: 20px;
+        margin-top: 10px;
         padding: 10px;
-        flex-direction: column; /* Empile les cartes verticalement */
+        flex-direction: column;
         align-items: center;
     }
 
     .card {
-        width: 100%; /* Prend toute la largeur disponible... */
-        max-width: 320px; /* ...sans jamais dépasser 320px */
-        margin-bottom: 20px;
-    }
-
-    /* 3. Gestion du Footer (Au cas où ce ne soit pas géré dans styles.css) */
-    .footer-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        gap: 30px;
-    }
-
-    .campus {
         width: 100%;
-        border-bottom: 1px solid #ccc;
-        padding-bottom: 15px;
-    }
-    
-    .campus:last-child {
-        border-bottom: none;
+        max-width: 340px;
     }
 }
 
-/* --- TRES PETITS ÉCRANS (Largeur max: 400px) --- */
+/* --- TRÈS PETITS ÉCRANS (Largeur max: 400px) --- */
 @media screen and (max-width: 400px) {
+
     .calque, .calque img, .calque canvas {
         width: 120px;
         height: 120px;
     }
-    
+
     .member-name {
         font-size: 18px;
+    }
+
+    .badge {
+        font-size: 13px;
+        padding: 5px 10px;
     }
 }
