@@ -1,0 +1,26 @@
+select{
+    color: rgb(255, 255, 255);
+    background-color:#000000;
+    border: 0px;
+    margin: 20px;
+    font-weight: 900;
+    font-size: 15px;
+    
+}
+
+#filtre{
+    background-color:#000000;
+    color: rgb(255, 255, 255);
+    border-radius: 10px;
+    margin: 20px;
+}
+
+h1{
+   margin: 0;
+    font-weight: 900;
+    font-size: 38px; 
+    line-height: 1;
+    letter-spacing: -2.2px;
+    text-transform: uppercase;
+    padding: 25px;
+}
