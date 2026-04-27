@@ -44,6 +44,41 @@
         </nav>
     </header>
 
+    <section class="contact-section">
+        <div class="form-wrapper">
+            <h2>Contactez le responsable de l'équipe</h2>
+
+            <div class="input-group">
+                <span class="input-icon">👤</span>
+                <input type="text" id="nom" placeholder="Prénom Nom">
+            </div>
+            <p class="error-msg" id="error-nom"></p>
+
+            <div class="input-group">
+                <span class="input-icon">@</span>
+                <input type="text" id="email" placeholder="email@example.com">
+            </div>
+            <p class="error-msg" id="error-email"></p>
+
+            <div class="input-group textarea-group">
+                <textarea id="message" placeholder="Votre message (1000 caractères maximum)" maxlength="1000"></textarea>
+            </div>
+            <p class="error-msg" id="error-message"></p>
+
+            <button id="btn-envoyer" disabled>Envoyer</button>
+        </div>
+    </section>
+
+    <!-- Overlay du jeu -->
+    <div id="game-overlay">
+        <div id="game-box">
+            <h2 id="game-title">🎮 Défi avant envoi !</h2>
+            <p id="game-instruction"></p>
+            <div id="game-area"></div>
+            <p id="game-result"></p>
+        </div>
+    </div>
+
     <footer>
         <div class="footer-content">
             <div class="campus">
