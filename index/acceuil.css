@@ -243,3 +243,126 @@
 
 #btn-vrai { background: black; color: white; }
 #btn-faux { background: white; color: black; }
+
+/* =========================================
+   RESPONSIVE DESIGN (Page Accueil)
+========================================= */
+
+/* --- TABLETTES (Largeur max: 1024px) --- */
+@media screen and (max-width: 1024px) {
+
+    /* Slogan : réduit la hauteur et l'image */
+    .slogan-container {
+        height: auto;
+        padding: 30px;
+    }
+
+    .image-wrapper {
+        flex: 0 0 300px;
+        height: 300px;
+    }
+
+    .slogan-image {
+        height: 260px;
+    }
+
+    /* Vidéo : réduit la taille de l'iframe */
+    .video-section iframe {
+        width: 100%;
+        max-width: 500px;
+        height: 280px;
+    }
+
+    /* Cartes : 2 par ligne */
+    .cards-container {
+        flex-wrap: wrap;
+    }
+
+    .news-card {
+        flex: 1 1 calc(50% - 15px);
+    }
+}
+
+/* --- SMARTPHONES (Largeur max: 768px) --- */
+@media screen and (max-width: 768px) {
+
+    /* Slogan : empile texte et image verticalement */
+    .slogan-container {
+        flex-direction: column;
+        height: auto;
+        padding: 30px 20px;
+        text-align: center;
+    }
+
+    .slogan-text {
+        width: 100%;
+        margin-left: 0;
+        font-size: 22px;
+    }
+
+    .text-wrapper {
+        padding-right: 0;
+    }
+
+    .text-wrapper p {
+        margin-top: 20px;
+    }
+
+    .image-wrapper {
+        flex: none;
+        width: 100%;
+        height: 220px;
+        margin-top: 20px;
+    }
+
+    .slogan-image {
+        height: 200px;
+        width: 100%;
+    }
+
+    /* Désactive le zoom au survol sur mobile (inutile au doigt) */
+    .slogan-image:hover {
+        transform: none;
+    }
+
+    /* Présentation : padding réduit */
+    .presentation-section {
+        padding: 0 20px;
+        border-radius: 15px;
+    }
+
+    /* Vidéo : pleine largeur */
+    .video-section iframe {
+        width: 100%;
+        height: 220px;
+    }
+
+    /* Cartes : 1 par ligne */
+    .cards-container {
+        flex-direction: column;
+    }
+
+    .news-card {
+        flex: 1 1 100%;
+    }
+}
+
+/* --- TRÈS PETITS ÉCRANS (Largeur max: 480px) --- */
+@media screen and (max-width: 480px) {
+
+    .slogan-text {
+        font-size: 18px;
+    }
+
+    .presentation-section h1 {
+        font-size: 22px;
+    }
+
+    .video-section iframe {
+        height: 180px;
+    }
+
+    .card-title {
+        font-size: 15px;
+    }
+}
