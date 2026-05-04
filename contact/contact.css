@@ -1,0 +1,218 @@
+.contact-section {
+    display: flex;
+    justify-content: center;
+    padding: 60px 5%;
+}
+
+.form-wrapper {
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 20px;
+    padding: 40px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.form-wrapper h2 {
+    color: black;
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.subtitle {
+    text-align: center;
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 25px;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 10px 15px;
+    margin-bottom: 5px;
+    gap: 10px;
+}
+
+.input-icon {
+    font-size: 16px;
+    color: #888;
+}
+
+.input-group input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+}
+
+.textarea-group {
+    align-items: flex-start;
+    padding: 10px 15px;
+}
+
+.textarea-group textarea {
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 150px;
+    resize: vertical;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+}
+
+.error-msg {
+    color: red;
+    font-size: 12px;
+    margin: 0 0 12px 5px;
+    min-height: 16px;
+}
+
+#btn-envoyer {
+    display: block;
+    margin-left: auto;
+    padding: 10px 30px;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+#btn-envoyer:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+}
+
+#btn-envoyer:not(:disabled):hover {
+    background-color: #1558b0;
+}
+
+/* --- OVERLAY DU JEU --- */
+#game-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+#game-box {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+}
+
+#game-instruction {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+#game-area {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+#game-area button {
+    padding: 10px 25px;
+    font-size: 16px;
+    border: 2px solid #000;
+    border-radius: 8px;
+    cursor: pointer;
+    background: white;
+    transition: all 0.2s;
+    width: 200px;
+}
+
+#game-area button:hover {
+    background: #000;
+    color: white;
+}
+
+#game-result {
+    margin-top: 20px;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+/* --- RESPONSIVE DESIGN (MOBILE) --- */
+
+@media screen and (max-width: 768px) {
+    /* On réduit l'espace en haut de la section pour mobile */
+    .contact-section {
+        padding: 100px 15px 40px;
+    }
+
+    .form-wrapper {
+        padding: 30px 20px; /* Moins de padding interne sur mobile */
+        border-width: 3px;   /* Bordure légèrement plus fine */
+    }
+
+    /* Le bandeau titre s'adapte à la nouvelle largeur */
+    .form-wrapper h2 {
+        margin: -30px -20px 25px -20px;
+        font-size: 18px;
+        padding: 12px;
+    }
+
+    .subtitle {
+        font-size: 11px;
+        margin-bottom: 20px;
+    }
+
+    /* On agrandit un peu les zones de saisie pour que ce soit plus facile au doigt */
+    .input-group {
+        padding: 14px 12px;
+    }
+
+    input, textarea {
+        font-size: 16px; /* Évite le zoom automatique de l'iPhone sur les inputs */
+    }
+
+    #btn-envoyer {
+        padding: 18px;
+        font-size: 14px;
+        letter-spacing: 3px;
+    }
+
+    /* --- AJUSTEMENT DU JEU SUR MOBILE --- */
+    #game-box {
+        width: 90%;
+        padding: 25px 15px;
+        border-width: 4px;
+    }
+
+    #game-title {
+        font-size: 20px;
+    }
+
+    #game-area button {
+        width: 100%; /* Boutons de jeu l'un sous l'autre sur mobile */
+        margin: 5px 0;
+    }
+}
+
+/* --- TRÈS PETITS ÉCRANS (iPhone SE, etc.) --- */
+@media screen and (max-width: 380px) {
+    .form-wrapper h2 {
+        letter-spacing: 1px;
+        font-size: 16px;
+    }
+}
