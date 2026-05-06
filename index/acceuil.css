@@ -1,368 +1,475 @@
-/* --- SECTION SLOGAN (Haut de page) --- */
-
+/* ===== HERO SLOGAN ===== */
 .slogan-section {
-    padding: 40px 5%;
-    background-color: #fafafa; /* Fond gris très clair */
+    padding: 60px 5% 0;
+    background: #fafafa;
 }
 
 .slogan-container {
-    height: 450px;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
     align-items: center;
-    justify-content: space-between;
-    background: #ffffff;
-    border-radius: 30px; /* Coins arrondis */
-    padding: 0 40px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Ombre légère */
-    overflow: hidden;
-    border: 1px solid #eeeeee;
+    padding: 60px 0;
+    border-bottom: 3px solid #0a0a0a;
 }
 
-/* Zone de texte à gauche du slogan */
 .text-wrapper {
-    flex: 1;
-    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
-.text-wrapper p {
-    opacity: 55%;
-    margin-top: 80px;
-}
-
-/* Bouton d'action (CTA) */
-.text-wrapper button {
-    margin-top: 20px;
-    padding: 10px 25px;
-    border-radius: 30px;
-    background-color: black;
-    color: white;
-    cursor: pointer;
-}
-
-/* Style du texte animé (Slogan) */
 .slogan-text {
-    width: 70%;
-    font-family: 'Inter', sans-serif;
-    font-weight: 800;
-    font-size: 28px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(38px, 6vw, 72px);
+    letter-spacing: 2px;
     color: #1a1a1a;
-    line-height: 1.3;
-    text-align: center;
-    margin-left: 60px;
-    min-height: 2.6em; /* Évite que le reste de la page bouge pendant l'anim */
+    line-height: 1.1;
+    margin: 0 0 30px 0;
+    min-height: 3.2em;
 }
 
-/* Zone de l'image à droite du slogan */
-.image-wrapper {
-    flex: 0 0 500px;
-    height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.slogan-image {
-    width: 100%;
-    height: 360px;
-    object-fit: cover;
-    border-radius: 20px;
-    box-shadow: 10px 10px 0px #f0f0f0; /* Effet de contour décalé */
-    transition: transform 0.5s ease;
-}
-
-.slogan-image:hover {
-    transform: scale(2); /* Zoom x2 au survol */
-}
-
-/* --- SECTION PRÉSENTATION (Texte et Vidéo) --- */
-
-.presentation-section {
-    padding: 40px 5%;
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    background: #ffffff;
-    border-radius: 30px;
-    padding: 0 40px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-    border: 1px solid #eeeeee;
-}
-
-.presentation-section h1 {
-    margin-bottom: 50px;
-    margin-top: 50px;
-}
-
-/* Zone de la vidéo YouTube */
-.video-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 50px;
-}
-
-.video-section h1 {
-    margin-top: 70px;
-}
-
-/* --- SECTION ACTUALITÉS (Cartes) --- */
-
-.actualite p {
-    margin-top: -40px;
-    opacity: 55%;
-    margin-bottom: 50px;
-}
-
-.cards-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 30px;
-    width: 100%;
-    margin-bottom: 50px;
-}
-
-/* Style individuel de chaque carte de news */
-.news-card {
-    background-color: #ffffff;
-    border: 1px solid #eeeeee;
-    border-radius: 20px;
-    padding: 30px;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: box-shadow 0.3s ease;
-}
-
-.news-card:hover {
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
-
-.card-header {
-    display: flex;
-    gap: 15px;
-    margin-bottom: 15px;
-}
-
-/* Style de la petite icône colorée dans la carte */
-.card-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 24px;
-    width: 50px;
-    height: 50px;
-    border-radius: 10px;
-}
-
-/* Couleurs des icônes news */
-.icon-orange { background-color: #fff3e0; }
-.icon-blue { background-color: #e3f2fd; }
-.icon-green { background-color: #e8f5e9; }
-
-.card-title {
-    font-size: 18px;
-    font-weight: 700;
-}
-
-.card-text {
-    font-size: 14px;
-    color: #666666;
-    line-height: 1.6;
-}
-
-.card-date {
-    font-size: 12px;
-    color: #999999;
-    font-weight: bold;
-}
-
-/* --- ANIMATIONS (JavaScript) --- */
-
-/* Animation de mouvement de gauche à droite du slogan */
-@keyframes shakeAndSlide {
-    0% { transform: translateX(0); }
-    30% { transform: translateX(50px); }
-    60% { transform: translateX(-50px); }
-    100% { transform: translateX(0); }
-}
-
-.animate-move {
-    animation: shakeAndSlide 1.5s ease-in-out forwards;
-}
-
-/* Animation d'apparition des mots un par un */
-.word {
+.slogan-text .word {
     display: inline-block;
-    margin-right: 8px;
+    margin-right: 0.15em;
     opacity: 0;
-    transform: translateY(10px);
-    transition: all 0.5s ease;
+    transform: translateY(20px);
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.word.visible {
+.slogan-text .word.visible {
     opacity: 1;
     transform: translateY(0);
 }
 
-/* --- FENÊTRE MODALE (Confirmation personnalisée) --- */
-
-#custom-confirm {
-    position: fixed;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.8);
-    display: none; /* Cachée par défaut */
-    justify-content: center;
-    align-items: center;
-    z-index: 10000;
+.text-wrapper > p {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: #999;
+    margin: 0 0 30px 0;
+    max-width: 480px;
 }
 
-.modal-content {
-    background: white;
-    padding: 30px;
-    border-radius: 4px;
-    text-align: center;
-}
-
-.modal-buttons {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-}
-
-.modal-buttons button {
-    padding: 10px 25px;
-    border: 2px solid black;
-    font-weight: 900;
+.text-wrapper button {
+    align-self: flex-start;
+    padding: 14px 36px;
+    background: #0a0a0a;
+    color: #fafafa;
+    border: 2px solid #0a0a0a;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
     cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
 }
 
-#btn-vrai { background: black; color: white; }
-#btn-faux { background: white; color: black; }
+.text-wrapper button::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #ff3b00;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+    z-index: -1;
+}
 
-/* =========================================
-   RESPONSIVE DESIGN (Page Accueil)
-========================================= */
+.text-wrapper button:hover {
+    color: #fafafa;
+    border-color: #ff3b00;
+}
 
-/* --- TABLETTES (Largeur max: 1024px) --- */
-@media screen and (max-width: 1024px) {
+.text-wrapper button:hover::before {
+    transform: scaleX(1);
+}
 
-    /* Slogan : réduit la hauteur et l'image */
+/* Image Section */
+.image-wrapper {
+    position: relative;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 30px;
+}
+
+.slogan-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter 0.6s ease;
+    filter: brightness(1);
+}
+
+.slogan-image:hover {
+    transform: scale(2);
+    filter: brightness(1.1);
+}
+
+.image-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255, 59, 0, 0.15) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+/* ===== PRESENTATION SECTION ===== */
+.presentation-section {
+    background: #fafafa;
+    padding: 80px 5%;
+}
+
+.presentation-section > div:first-child {
+    max-width: 1200px;
+    margin: 0 auto 80px;
+}
+
+.presentation-section h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(42px, 6vw, 64px);
+    letter-spacing: 3px;
+    color: #0a0a0a;
+    margin: 0 0 30px 0;
+    line-height: 1;
+}
+
+.presentation-section > div:first-child > p {
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.8;
+    color: #1a1a1a;
+    max-width: 900px;
+}
+
+.presentation-section strong {
+    font-weight: 700;
+    color: #ff3b00;
+}
+
+/* ===== VIDEO SECTION ===== */
+.video-section {
+    max-width: 1200px;
+    margin: 0 auto 100px;
+}
+
+.video-section h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(32px, 5vw, 54px);
+    letter-spacing: 2px;
+    color: #0a0a0a;
+    margin-bottom: 40px;
+    border-bottom: 2px solid #ff3b00;
+    padding-bottom: 20px;
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border: 3px solid #0a0a0a;
+    background: #000;
+    animation: fadeIn 0.8s ease 0.2s both;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* ===== ACTUALITÉS SECTION ===== */
+.actualite {
+    max-width: 1200px;
+    margin: 0 auto 50px;
+}
+
+.actualite h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(32px, 5vw, 54px);
+    letter-spacing: 2px;
+    color: #0a0a0a;
+    margin: 0;
+}
+
+.actualite p {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #999;
+    margin: 12px 0 0 0;
+    font-weight: 500;
+}
+
+/* Cards Container */
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+    max-width: 1200px;
+    margin: 50px auto 0;
+    padding: 0 5%;
+}
+
+/* News Card */
+.news-card {
+    background: #ffffff;
+    border: 2px solid #0a0a0a;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.news-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 3px;
+    background: #ff3b00;
+    transition: left 0.35s ease;
+}
+
+.news-card:hover {
+    border-color: #ff3b00;
+    box-shadow: -8px 8px 0 rgba(10, 10, 10, 0.1);
+    transform: translateY(-6px);
+}
+
+.news-card:hover::before {
+    left: 0;
+}
+
+.card-header {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 20px;
+    align-items: flex-start;
+}
+
+.card-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    border-radius: 2px;
+    background: rgba(255, 59, 0, 0.1);
+    border: 1px solid #e8e8e8;
+}
+
+.icon-blue {
+    background: rgba(30, 115, 232, 0.1);
+    border-color: #1e73e8;
+}
+
+.icon-green {
+    background: rgba(34, 177, 76, 0.1);
+    border-color: #22b14c;
+}
+
+.icon-orange {
+    background: rgba(255, 59, 0, 0.1);
+}
+
+.card-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    color: #0a0a0a;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.card-text {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #999;
+    margin: 16px 0 0 0;
+    flex-grow: 1;
+}
+
+.card-date {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #999;
+    text-transform: uppercase;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #e8e8e8;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes shakeAndSlide {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    30% {
+        transform: translateX(50px);
+    }
+    60% {
+        transform: translateX(-50px);
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 0;
+    }
+}
+
+.animate-move {
+    animation: shakeAndSlide 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+
+@media (max-width: 1024px) {
     .slogan-container {
-        height: auto;
-        padding: 30px;
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding: 40px 0;
     }
 
     .image-wrapper {
-        flex: 0 0 300px;
-        height: 300px;
+        height: 350px;
     }
 
-    .slogan-image {
-        height: 260px;
+    .slogan-text {
+        font-size: clamp(28px, 5vw, 48px);
     }
 
-    /* Vidéo : réduit la taille de l'iframe */
-    .video-section iframe {
-        width: 100%;
-        max-width: 500px;
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .slogan-section {
+        padding: 40px 5% 0;
+    }
+
+    .slogan-container {
+        padding: 30px 0;
+        border-bottom: 2px solid #0a0a0a;
+    }
+
+    .slogan-text {
+        font-size: clamp(24px, 5vw, 36px);
+        margin-bottom: 20px;
+    }
+
+    .text-wrapper > p {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+
+    .text-wrapper button {
+        padding: 12px 28px;
+        font-size: 12px;
+    }
+
+    .image-wrapper {
         height: 280px;
     }
 
-    /* Cartes : 2 par ligne */
-    .cards-container {
-        flex-wrap: wrap;
-    }
-
-    .news-card {
-        flex: 1 1 calc(50% - 15px);
-    }
-}
-
-/* --- SMARTPHONES (Largeur max: 768px) --- */
-@media screen and (max-width: 768px) {
-
-    /* Slogan : empile texte et image verticalement */
-    .slogan-container {
-        flex-direction: column;
-        height: auto;
-        padding: 30px 20px;
-        text-align: center;
-    }
-
-    .slogan-text {
-        width: 100%;
-        margin-left: 0;
-        font-size: 22px;
-    }
-
-    .text-wrapper {
-        padding-right: 0;
-    }
-
-    .text-wrapper p {
-        margin-top: 20px;
-    }
-
-    .image-wrapper {
-        flex: none;
-        width: 100%;
-        height: 220px;
-        margin-top: 20px;
-    }
-
-    .slogan-image {
-        height: 200px;
-        width: 100%;
-    }
-
-    /* Désactive le zoom au survol sur mobile (inutile au doigt) */
     .slogan-image:hover {
-        transform: none;
+        transform: scale(1.02) rotate(0deg);
     }
 
-    /* Présentation : padding réduit */
     .presentation-section {
-        padding: 0 20px;
-        border-radius: 15px;
+        padding: 50px 5%;
     }
 
-    /* Vidéo : pleine largeur */
-    .video-section iframe {
-        width: 100%;
-        height: 220px;
-    }
-
-    /* Cartes : 1 par ligne */
-    .cards-container {
-        flex-direction: column;
-    }
-
-    .news-card {
-        flex: 1 1 100%;
-    }
-}
-
-/* --- TRÈS PETITS ÉCRANS (Largeur max: 480px) --- */
-@media screen and (max-width: 480px) {
-
-    .slogan-text {
-        font-size: 18px;
+    .presentation-section > div:first-child {
+        margin-bottom: 50px;
     }
 
     .presentation-section h1 {
+        font-size: clamp(28px, 5vw, 42px);
+    }
+
+    .presentation-section > div:first-child > p {
+        font-size: 14px;
+    }
+
+    .video-section h1,
+    .actualite h1 {
+        font-size: clamp(24px, 5vw, 36px);
+    }
+
+    .cards-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .news-card {
+        padding: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .presentation-section {
+        padding: 30px 5%;
+    }
+
+    .slogan-text {
+        font-size: 20px;
+    }
+
+    .presentation-section h1,
+    .video-section h1,
+    .actualite h1 {
         font-size: 22px;
     }
 
-    .video-section iframe {
-        height: 180px;
+    .presentation-section > div:first-child > p,
+    .text-wrapper > p {
+        font-size: 13px;
     }
 
     .card-title {
         font-size: 15px;
+    }
+
+    .card-text {
+        font-size: 13px;
+    }
+
+    .news-card:hover {
+        box-shadow: none;
+        transform: none;
     }
 }

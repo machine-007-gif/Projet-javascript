@@ -3,23 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.png">
     <link rel="stylesheet" href="location.css">
     <link rel="stylesheet" href="../index/styles.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="location.js" defer></script>
     <script src="../index/script.js" defer></script>
-    <title>Nous trouver</title>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" defer></script>
+    <title>Nous trouver — Trackwear</title>
 </head>
 <body>
     <div id="loader-overlay">
         <div class="loader-bar"></div>
         <div id="loader-text">Chargement...</div>
     </div>
+
     <header>
         <nav>
             <div class="logo-container">
                 <h1><a href="../index/index.html">Trackwear</a></h1>
                 <div class="time">
-                    <div id="clock" class="clock">                   
+                    <div id="clock" class="clock">
                         <div id="hours-tens"></div>
                         <div id="hours-units"></div>
                         <div id="colon" class="colon">:</div>
@@ -34,7 +40,7 @@
             </div>
             <button class="hamburger" id="hamburger">&#9776;</button>
             <div class="links" id="nav-links">
-                <li><a href="../index/index.html">Accueil</a></li>                
+                <li><a href="../index/index.html">Accueil</a></li>
                 <li><a href="../about/about.html">À propos</a></li>
                 <li><a href="../produits/produits.html">Produits</a></li>
                 <li><a href="../team/team.html" class="confirm-nav">Notre Équipe</a></li>
@@ -43,6 +49,89 @@
             </div>
         </nav>
     </header>
+
+    <main class="location-container">
+
+        <div class="location-header">
+            <div class="location-header-left">
+                <span class="location-tag">● Nos campus</span>
+                <h2>Localisations</h2>
+            </div>
+            <p class="location-subtitle">Cliquez sur un campus pour voir la carte et la distance</p>
+        </div>
+
+        <div class="city-grid">
+            <div class="city-card" onclick="ouvrirCarte('Nantes', 47.274945354909676, -1.504725947418413)">
+                <p class="city-number">01 / ISEN</p>
+                <h3 class="city-name">Nantes</h3>
+                <div class="weather-box">
+                    <span class="weather-label">Météo actuelle</span>
+                    <span id="weather-Nantes">--°C</span>
+                </div>
+                <p class="city-cta">Voir sur la carte</p>
+            </div>
+            <div class="city-card" onclick="ouvrirCarte('Brest', 48.408182786615164, -4.490537253755822)">
+                <p class="city-number">02 / ISEN</p>
+                <h3 class="city-name">Brest</h3>
+                <div class="weather-box">
+                    <span class="weather-label">Météo actuelle</span>
+                    <span id="weather-Brest">--°C</span>
+                </div>
+                <p class="city-cta">Voir sur la carte</p>
+            </div>
+            <div class="city-card" onclick="ouvrirCarte('Caen', 49.177880846293974, -0.352686477932366)">
+                <p class="city-number">03 / ISEN</p>
+                <h3 class="city-name">Caen</h3>
+                <div class="weather-box">
+                    <span class="weather-label">Météo actuelle</span>
+                    <span id="weather-Caen">--°C</span>
+                </div>
+                <p class="city-cta">Voir sur la carte</p>
+            </div>
+            <div class="city-card" onclick="ouvrirCarte('Rennes', 48.10366072835833, -1.688872590795683)">
+                <p class="city-number">04 / ISEN</p>
+                <h3 class="city-name">Rennes</h3>
+                <div class="weather-box">
+                    <span class="weather-label">Météo actuelle</span>
+                    <span id="weather-Rennes">--°C</span>
+                </div>
+                <p class="city-cta">Voir sur la carte</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- MAP MODAL -->
+    <div id="map-modal">
+        <div class="map-panel">
+            <div class="map-panel-header">
+                <div class="map-panel-header-left">
+                    <span class="map-panel-tag">● ISEN Ouest</span>
+                    <span class="map-panel-title" id="modal-city-name">Nantes</span>
+                </div>
+                <button class="map-close-btn" onclick="fermerCarte()">✕</button>
+            </div>
+            <div class="map-stats-bar">
+                <div class="map-stat">
+                    <span class="map-stat-label">Distance</span>
+                    <span class="map-stat-value loading" id="modal-distance">Localisation...</span>
+                </div>
+                <div class="map-stat">
+                    <span class="map-stat-label">Météo</span>
+                    <span class="map-stat-value" id="modal-weather">--°C</span>
+                </div>
+                <div class="map-stat">
+                    <span class="map-stat-label">Votre position</span>
+                    <span class="map-stat-value loading" id="modal-coords">En attente...</span>
+                </div>
+            </div>
+            <div id="map-container"></div>
+        </div>
+    </div>
+
+    <div id="global-map-section">
+        <div id="global-map-container"></div>
+    </div>
 
     <footer>
         <div class="footer-content">
