@@ -74,7 +74,6 @@ body {
 /* Range slider */
 .filtre input[type="range"] {
     margin: 10px;
-    -webkit-appearance: none;
     width: 200px;
     height: 4px;
     background: #0a0a0a;
