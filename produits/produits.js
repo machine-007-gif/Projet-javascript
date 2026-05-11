@@ -64,65 +64,35 @@ btnRetourHaut.addEventListener('click', function() {
 function Acheter(event) {
     let btn = event.target;
     let divProduit = btn.parentElement;
-    let taille = divProduit.querySelector('select').value;
+    
+    // On cherche le select dans la div parente
+    let selectTaille = divProduit.querySelector('select');
+    let taille = selectTaille ? selectTaille.value : '';
 
+    // Vérification de la taille
     if (taille === '') {
-        alert('Veuillez sélectionner une taille avant d\'acheter.');//envoie une alerte si aucune taille n'est sélectionnée
+        Swal.fire({
+            title: "Taille manquante",
+            text: "Veuillez sélectionner une taille avant d'ajouter au panier.",
+            icon: "warning",
+            confirmButtonColor: "#ff3b00" // Ton orange Trackwear
+        });
         return;
     }
-    let produitId = divProduit.id;//récupère l'id du produit à partir du bouton cliqué
 
-    AfficherCanvas(produitId);//affiche le canvas d'achat pour le produit correspondant
-    
+    // Récupération de l'ID (ou du nom pour le message)
+    let produitId = divProduit.id;
+
+    // Alerte de succès personnalisée
+    Swal.fire({
+        title: "Ajouté au panier !",
+        text: `Le produit ${produitId} (Taille : ${taille}) a été ajouté.`,
+        icon: "success",
+        confirmButtonColor: "#0a0a0a", // Noir
+        background: "#fafafa"
+    });
 }
-// Affiche le canvas d'achat
-function AfficherCanvas(id) {
-    document.getElementById(`wrapper${id}`).style.display = 'flex';
 
-    const canvas = document.getElementById(`canvas${id}`);
-    const ctx = canvas.getContext('2d');
-    const W = canvas.width, H = canvas.height; // ex: width=400, height=70
-    const lw = 3, r = 24, cy = H / 2;
-
-    ctx.clearRect(0, 0, W, H);
-
-    // Bandeau fond noir arrondi
-    ctx.fillStyle = '#111';
-    ctx.beginPath();
-    ctx.roundRect(0, 0, W, H, 10);
-    ctx.fill();
-
-    // Fonction smiley inline
-    function smiley(cx) {
-        ctx.beginPath(); ctx.arc(cx, cy, r, 0, 2 * Math.PI);
-        ctx.fillStyle = '#F5C800'; ctx.fill();
-        ctx.strokeStyle = '#333'; ctx.lineWidth = lw; ctx.stroke();
-
-        ctx.beginPath(); ctx.arc(cx - 8, cy - 5, 6, Math.PI, 0); ctx.closePath();
-        ctx.fillStyle = '#333'; ctx.fill();
-        ctx.beginPath(); ctx.arc(cx - 8, cy - 5, 6 - lw, Math.PI, 0); ctx.closePath();
-        ctx.fillStyle = '#F5C800'; ctx.fill();
-
-        ctx.beginPath(); ctx.arc(cx + 8, cy - 5, 6, Math.PI, 0); ctx.closePath();
-        ctx.fillStyle = '#333'; ctx.fill();
-        ctx.beginPath(); ctx.arc(cx + 8, cy - 5, 6 - lw, Math.PI, 0); ctx.closePath();
-        ctx.fillStyle = '#F5C800'; ctx.fill();
-
-        ctx.beginPath(); ctx.arc(cx, cy + 4, 16, 0, Math.PI); ctx.closePath();
-        ctx.fillStyle = '#333'; ctx.fill();
-        ctx.beginPath(); ctx.arc(cx, cy + 4, 16 - lw, 0.05 * Math.PI, 0.95 * Math.PI); ctx.closePath();
-        ctx.fillStyle = '#fff'; ctx.fill();
-    }
-
-    smiley(r + 8);          // smiley gauche
-    smiley(W - r - 8);      // smiley droit
-
-    // Texte centré
-    ctx.font = 'bold 16px Arial';
-    ctx.fillStyle = '#fff';
-    ctx.textAlign = 'center';
-    ctx.fillText('Merci pour votre achat !', W / 2, cy + 5);
-}
 // ───────── Filtre ───────── //
 //filtre → nouvelle liste → re-génère le HTML → écrase l'ancien affichage
 
