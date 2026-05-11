@@ -77,34 +77,51 @@ function Acheter(event) {
 }
 // Affiche le canvas d'achat
 function AfficherCanvas(id) {
-    let canvas = document.getElementById(`canvas${id}`);
-    let context = canvas.getContext('2d');
+    document.getElementById(`wrapper${id}`).style.display = 'flex';
 
-    //affiche fond bleu
-    context.clearRect(0, 0, canvas.width, canvas.height); // efface le canvas avant de dessiner
-    context.fillStyle="blue";
-    context.fillRect(0, 0, canvas.width, canvas.height);
+    const canvas = document.getElementById(`canvas${id}`);
+    const ctx = canvas.getContext('2d');
+    const W = canvas.width, H = canvas.height; // ex: width=400, height=70
+    const lw = 3, r = 24, cy = H / 2;
 
-    //affiche smiley
-    context.beginPath();
-    context.arc(100, 100, 50, 0, 2 * Math.PI); // visage
-    context.fillStyle = 'yellow';
-    context.fill();
-    context.beginPath();
-    context.arc(80, 80, 10, 0, 2 * Math.PI); // œil gauche
-    context.arc(120, 80, 10, 0, 2 * Math.PI); // œil droit
-    context.fillStyle = 'black';
-    context.fill();
-    context.beginPath();
-    context.arc(100, 120, 30, 0, Math.PI); // bouche
-    context.fillStyle = 'black';
-    context.fill();
-    
-    // Affiche un message de confirmation d'achat
-    
-    context.font = '16px Arial';
-    context.fillStyle = 'white';
-    context.fillText('Achat confirmé !', 10, 50);
+    ctx.clearRect(0, 0, W, H);
+
+    // Bandeau fond noir arrondi
+    ctx.fillStyle = '#111';
+    ctx.beginPath();
+    ctx.roundRect(0, 0, W, H, 10);
+    ctx.fill();
+
+    // Fonction smiley inline
+    function smiley(cx) {
+        ctx.beginPath(); ctx.arc(cx, cy, r, 0, 2 * Math.PI);
+        ctx.fillStyle = '#F5C800'; ctx.fill();
+        ctx.strokeStyle = '#333'; ctx.lineWidth = lw; ctx.stroke();
+
+        ctx.beginPath(); ctx.arc(cx - 8, cy - 5, 6, Math.PI, 0); ctx.closePath();
+        ctx.fillStyle = '#333'; ctx.fill();
+        ctx.beginPath(); ctx.arc(cx - 8, cy - 5, 6 - lw, Math.PI, 0); ctx.closePath();
+        ctx.fillStyle = '#F5C800'; ctx.fill();
+
+        ctx.beginPath(); ctx.arc(cx + 8, cy - 5, 6, Math.PI, 0); ctx.closePath();
+        ctx.fillStyle = '#333'; ctx.fill();
+        ctx.beginPath(); ctx.arc(cx + 8, cy - 5, 6 - lw, Math.PI, 0); ctx.closePath();
+        ctx.fillStyle = '#F5C800'; ctx.fill();
+
+        ctx.beginPath(); ctx.arc(cx, cy + 4, 16, 0, Math.PI); ctx.closePath();
+        ctx.fillStyle = '#333'; ctx.fill();
+        ctx.beginPath(); ctx.arc(cx, cy + 4, 16 - lw, 0.05 * Math.PI, 0.95 * Math.PI); ctx.closePath();
+        ctx.fillStyle = '#fff'; ctx.fill();
+    }
+
+    smiley(r + 8);          // smiley gauche
+    smiley(W - r - 8);      // smiley droit
+
+    // Texte centré
+    ctx.font = 'bold 16px Arial';
+    ctx.fillStyle = '#fff';
+    ctx.textAlign = 'center';
+    ctx.fillText('Merci pour votre achat !', W / 2, cy + 5);
 }
 // ───────── Filtre ───────── //
 //filtre → nouvelle liste → re-génère le HTML → écrase l'ancien affichage
