@@ -92,7 +92,7 @@ function addMember() {
     <button class="delete-btn">x</button>
     <div class="presentation">
         <div class="calque">
-            <img src="../assets/images/Desrier.jpg" alt="Thomas">
+            <img src="../assets/images/desrier.jpg" alt="Antoine Desrier">
             <canvas></canvas>
         </div>
         <h2 class="member-name">Antoine Desrier</h2>
