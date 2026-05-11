@@ -45,32 +45,49 @@
         </nav>
     </header>
    
-    <form id= "filtre" name="filtre">
-        <h1>Produits : </h1>
-        <select class="taille">
-            <option value="taille">taille</option>
-            <option value="2 ans">2 ans</option>
-            <option value="3 ans">3 ans</option>
-            <option value="4 ans">4 ans </option>
-            <option value="5 ans">5 ans</option>
-            <option value="6 ans">6 ans</option>
-            <option value="7 ans">7 ans </option>
-            <option value="8 ans">8 ans</option>
-            <option value="9 ans">9 ans</option>
-            <option value="10 ans">10 ans </option>
+
+    <!-- Filtre -->
+
+    <h1>Nos produits:</h1>
+    <!-- Recherche textuelle -->
+    <div class="filtre">
+        <label for="filtreTaille">Taille</label>
+        <select id="filtreTaille">
+            <option value="">Toutes</option>
+            <option value="2-3 ans">2-3 ans</option>
+            <option value="4-6 ans">4-6 ans</option>
+            <option value="7-10 ans">7-10 ans</option>
+
+
         </select>
-        <select id="genre">
-            <option value="genre">genre</option>
-            <option value="garcon">garcon</option>
-            <option value="fille">fille</option>
+    </div>
+    <!-- Filtre par type -->
+    <div class="filtre">
+        <label for="filtreType">Catégorie</label>
+        <select id="filtreType">
+            <option value="">Tous</option>
+            <option value="habillement">Habillement</option>
+            <option value="accessoire">Accessoire</option>
         </select>
-    </form>
+    </div>
     
+    <!-- Filtre par prix max -->
+    <div class="filtre">
+        <label for="filtrePrix">Prix max : <span id="filtrePrixAffichage">50 €</span></label>
+        <input type="range" id="filtrePrix" min="10" max="50" value="50" step="5">
+    </div>
+ 
+    <!-- Bouton reset -->
+    <button id="btnResetFiltres" type="button">Réinitialiser</button>
+    
+
+    <!-- produits -->
     <div id="produits">
         
     </div>
 
-
+    <!-- flèche vers le haut -->
+    <div id="btnRetourHaut" title="Retour en haut"> <img src="../assets/images/fleche.png" class="icone"> </div></div>
 
     <footer>
         <div class="footer-content">

@@ -1,168 +1,439 @@
-select{
-    color: rgb(255, 255, 255);
-    background-color:#000000;
-    border: 0px;
-    margin: 20px;
-    font-weight: 900;
+/* ===== IMPORTS ===== */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap');
+
+/* ===== RESET & BASE ===== */
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #fafafa;
+    font-family: 'Inter', sans-serif;
+    color: #0a0a0a;
+}
+
+/* ===== PAGE HEADER ===== */
+.page-header {
+    padding: 60px 5% 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    border-bottom: 3px solid #0a0a0a;
+}
+
+.page-header h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(42px, 6vw, 72px);
+    letter-spacing: 3px;
+    color: #0a0a0a;
+    line-height: 1;
+}
+
+.page-header p {
     font-size: 15px;
-    
+    color: #999;
+    margin-top: 12px;
+    line-height: 1.7;
 }
 
-#filtre{
-    background-color:#000000;
-    color: rgb(255, 255, 255);
-    border-radius: 10px;
-    margin: 20px;
+/* ===== FILTRES ===== */
+.filtres-section {
+    padding: 30px 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: flex-end;
+    border-bottom: 1px solid #e8e8e8;
 }
 
-h1{
-    margin: 0;
-    font-weight: 900;
-    font-size: 38px; 
-    line-height: 1;
-    letter-spacing: -2.2px;
-    text-transform: uppercase;
-    padding: 25px;
-}
-h2{
-    margin: 0;
-    font-weight: 900;
-    font-size: 25px; 
-    line-height: 1;
-    letter-spacing: -0.5px;
-    
-    padding: 10px;
-    color: #fff;
-}
-p{
-    margin: 0;
-    font-weight: 900;
-    font-size: 15px; 
-    line-height: 1;
-    letter-spacing: -0.5px;
-    
-    padding: 10px;
-    color: #fff;
-}
-#produits{
-    display: grid;
-    grid-template-columns: repeat(auto-fill,minmax(255px, 1fr));/*colones de tailles egale qui s'adaptent toutes seules*/
-    gap:20px;/*espace entre les carte de produits*/
-    padding: 20px;
-}
-
-.produit {
-    background-color: #000000 ;
-    border-radius: 8px;
-    padding: 15px;
-    text-align: center;
+.filtre {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    transition: box-shadow 0.3s;
+    gap: 8px;
+}
+
+.filtre label {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #999;
+}
+
+.filtre select {
+    padding: 10px 36px 10px 14px;
+    border: 2px solid #0a0a0a;
+    background: #fafafa;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #0a0a0a;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%230a0a0a' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    min-width: 160px;
+}
+
+.filtre select:focus {
+    outline: none;
+    border-color: #ff3b00;
+    box-shadow: 4px 4px 0 rgba(255, 59, 0, 0.15);
+}
+
+.filtre select:hover {
+    border-color: #ff3b00;
+}
+
+/* Range slider */
+.filtre input[type="range"] {
+    -webkit-appearance: none;
+    width: 200px;
+    height: 4px;
+    background: #0a0a0a;
+    outline: none;
+    cursor: pointer;
+}
+
+.filtre input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    background: #ff3b00;
+    border: 2px solid #0a0a0a;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.filtre input[type="range"]::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+.filtre input[type="range"]::-moz-range-thumb {
+    width: 18px;
+    height: 18px;
+    background: #ff3b00;
+    border: 2px solid #0a0a0a;
+    cursor: pointer;
+    border-radius: 0;
+}
+
+/* Bouton reset */
+#btnResetFiltres {
+    padding: 12px 28px;
+    background: transparent;
+    color: #0a0a0a;
+    border: 2px solid #0a0a0a;
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
     overflow: hidden;
-}
-.carousel {
-    position: relative;
-    width: 100%;
-    height: 250px;
-    overflow: hidden; /* Cache la 2ème image */
+    align-self: flex-end;
 }
 
-.imagesContainer {
-    width: 100%;
-    height: 100%;
-}
-
-.images {
-    display: flex; /* Aligne les slides côte à côte */
-    transition: transform 0.5s ease-in-out; /* L'effet de glisse */
-    width: 100%;
-    height: 100%;
-}
-
-.slide {
-    min-width: 100%; /* Chaque slide prend toute la largeur */
-    height: 100%;
-}
-
-.slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.indicators {
+#btnResetFiltres::before {
+    content: '';
     position: absolute;
-    top: 50%;
-    width: 100%;
+    inset: 0;
+    background: #0a0a0a;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+    z-index: -1;
+}
+
+#btnResetFiltres:hover {
+    color: #fafafa;
+}
+
+#btnResetFiltres:hover::before {
+    transform: scaleX(1);
+}
+
+/* ===== GRILLE PRODUITS ===== */
+#produits {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2px;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 5%;
+}
+
+/* ===== CARTE PRODUIT ===== */
+.produit {
+    background: #ffffff;
+    border: 2px solid #0a0a0a;
+    padding: 28px;
     display: flex;
-    justify-content: space-between;
-    transform: translateY(-50%);
-    pointer-events: none; /* Permet de cliquer sur l'image derrière */
-}
-
-.fleche {
-    pointer-events: auto; /* Réactive le clic sur les boutons */
-    background: rgba(0,0,0,0.5);
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-}
-
-.images:hover .fleche{
-    display: block;
-}
-#gauche {left:5px}
-#droite {right: 5px;}
-
-.fleche:hover{
-    background: rgba(255, 255,255, 0.8);
-    color: #000000;
-}
-
-.btnAchat{
-    color: rgb(255, 255, 255);
-    background-color:#000000;
-    border: 2px solid;
-    border-radius: 20px;
-    border-color: #fff;
-    font-weight: 900;
-    font-size: 15px;
-    
-}
-
-.btnAchat:hover{
-    color: #e67e22;
-    border-color: #e67e22;
-
-}
-
-.modal {
-    display: none; /* Caché par défaut */
-    position: fixed;
-    z-index: 1000; /* Toujours au-dessus */
-    left: 0; top: 0;
-    width: 100%; height: 100%;
-    background-color: rgba(0,0,0,0.7); /* Fond sombre */
-}
-/* La boîte blanche au milieu */
-.modal-content {
-    background-color: white;
-    margin: 15% auto;
-    padding: 30px;
-    border-radius: 15px;
-    width: 50%;
-    max-width: 500px;
+    flex-direction: column;
+    gap: 14px;
     position: relative;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    overflow: hidden;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    animation: fadeIn 0.5s ease both;
 }
 
-/* Le bouton fermer (X) */
-.fermer {
+.produit::before {
+    content: '';
     position: absolute;
-    right: 20px; top: 10px;
-    font-size: 28px;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 3px;
+    background: #ff3b00;
+    transition: left 0.35s ease;
+}
+
+.produit:hover {
+    border-color: #ff3b00;
+    box-shadow: -8px 8px 0 rgba(10, 10, 10, 0.08);
+    transform: translateY(-4px);
+    z-index: 1;
+}
+
+.produit:hover::before {
+    left: 0;
+}
+
+/* Image produit */
+.imgProduit {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
     cursor: pointer;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+    display: block;
+    border: 1px solid #e8e8e8;
+}
+
+.imgProduit:hover {
+    transform: scale(1.03);
+    filter: brightness(1.05);
+}
+
+/* Nom produit */
+.produit h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 1.5px;
+    color: #0a0a0a;
+    line-height: 1;
+}
+
+/* Prix */
+.produit p {
+    font-size: 13px;
+    font-weight: 700;
+    color: #ff3b00;
+    letter-spacing: 0.5px;
+}
+
+/* Formulaire sélection taille/couleur */
+.selectionForm {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.selectionForm label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #999;
+}
+
+.selectionForm select {
+    padding: 9px 32px 9px 12px;
+    border: 2px solid #e8e8e8;
+    background: #fafafa;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: #0a0a0a;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%230a0a0a' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    transition: border-color 0.2s ease;
+    width: 100%;
+}
+
+.selectionForm select:focus {
+    outline: none;
+    border-color: #ff3b00;
+}
+
+/* Bouton acheter */
+.btnAcheter {
+    padding: 13px 24px;
+    background: #0a0a0a;
+    color: #fafafa;
+    border: 2px solid #0a0a0a;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.btnAcheter::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #ff3b00;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+    z-index: -1;
+}
+
+.btnAcheter:hover {
+    border-color: #ff3b00;
+    color: #fafafa;
+}
+
+.btnAcheter:hover::before {
+    transform: scaleX(1);
+}
+
+.btnAcheter:active {
+    transform: scale(0.98);
+}
+
+/* Canvas confirmation achat */
+.canvasAchat {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 2px solid #0a0a0a;
+    background: transparent;
+}
+
+
+
+
+/* ===== MESSAGE AUCUN RÉSULTAT ===== */
+.aucun-resultat {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 80px 20px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    letter-spacing: 2px;
+    color: #e8e8e8;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+    #produits {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .filtres-section {
+        gap: 16px;
+    }
+
+    .filtre select,
+    .filtre input[type="range"] {
+        min-width: 140px;
+        width: 100%;
+    }
+
+    #produits {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        padding: 24px 5%;
+    }
+
+    .produit {
+        padding: 18px;
+    }
+
+    .imgProduit {
+        height: 180px;
+    }
+
+    .produit h3 {
+        font-size: 18px;
+    }
+
+    .produit:hover {
+        box-shadow: none;
+        transform: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-header {
+        padding: 40px 5% 24px;
+    }
+
+    .page-header h1 {
+        font-size: 36px;
+    }
+
+    #produits {
+        grid-template-columns: 1fr;
+    }
+
+    .imgProduit {
+        height: 220px;
+    }
+
+
+}
+#btnRetourHaut {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    right: 5px;
+    bottom: 5px;
+    cursor: pointer;
+}
+
+.icone{
+    width: 35px;
+    height: 35px;
+}
+
+.canvasAchat{
+    border: 1px solid black;
 }
