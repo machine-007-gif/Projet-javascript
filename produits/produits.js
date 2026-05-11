@@ -64,48 +64,35 @@ btnRetourHaut.addEventListener('click', function() {
 function Acheter(event) {
     let btn = event.target;
     let divProduit = btn.parentElement;
-    let taille = divProduit.querySelector('select').value;
+    
+    // On cherche le select dans la div parente
+    let selectTaille = divProduit.querySelector('select');
+    let taille = selectTaille ? selectTaille.value : '';
 
+    // Vérification de la taille
     if (taille === '') {
-        alert('Veuillez sélectionner une taille avant d\'acheter.');//envoie une alerte si aucune taille n'est sélectionnée
+        Swal.fire({
+            title: "Taille manquante",
+            text: "Veuillez sélectionner une taille avant d'ajouter au panier.",
+            icon: "warning",
+            confirmButtonColor: "#ff3b00" // Ton orange Trackwear
+        });
         return;
     }
-    let produitId = divProduit.id;//récupère l'id du produit à partir du bouton cliqué
 
-    AfficherCanvas(produitId);//affiche le canvas d'achat pour le produit correspondant
-    
+    // Récupération de l'ID (ou du nom pour le message)
+    let produitId = divProduit.id;
+
+    // Alerte de succès personnalisée
+    Swal.fire({
+        title: "Ajouté au panier !",
+        text: `Le produit ${produitId} (Taille : ${taille}) a été ajouté.`,
+        icon: "success",
+        confirmButtonColor: "#0a0a0a", // Noir
+        background: "#fafafa"
+    });
 }
-// Affiche le canvas d'achat
-function AfficherCanvas(id) {
-    let canvas = document.getElementById(`canvas${id}`);
-    let context = canvas.getContext('2d');
 
-    //affiche fond bleu
-    context.clearRect(0, 0, canvas.width, canvas.height); // efface le canvas avant de dessiner
-    context.fillStyle="blue";
-    context.fillRect(0, 0, canvas.width, canvas.height);
-
-    //affiche smiley
-    context.beginPath();
-    context.arc(100, 100, 50, 0, 2 * Math.PI); // visage
-    context.fillStyle = 'yellow';
-    context.fill();
-    context.beginPath();
-    context.arc(80, 80, 10, 0, 2 * Math.PI); // œil gauche
-    context.arc(120, 80, 10, 0, 2 * Math.PI); // œil droit
-    context.fillStyle = 'black';
-    context.fill();
-    context.beginPath();
-    context.arc(100, 120, 30, 0, Math.PI); // bouche
-    context.fillStyle = 'black';
-    context.fill();
-    
-    // Affiche un message de confirmation d'achat
-    
-    context.font = '16px Arial';
-    context.fillStyle = 'white';
-    context.fillText('Achat confirmé !', 10, 50);
-}
 // ───────── Filtre ───────── //
 //filtre → nouvelle liste → re-génère le HTML → écrase l'ancien affichage
 
