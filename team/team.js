@@ -1,3 +1,6 @@
+// Fichier team.js : Gère l'affichage et l'édition de la liste de l'équipe
+// Permet d'ajouter/supprimer des membres et d'utiliser l'effet de grattage sur les cartes
+
 function calqueGrattage() {
     let canvases = document.querySelectorAll("canvas");
     canvases.forEach(c => {
@@ -5,6 +8,7 @@ function calqueGrattage() {
     });
 }
 
+// Affiche un formulaire de login avant d'activer le mode édition
 function verifModeEdition() {
     let editionMode = false;
     let buttonEdition = document.querySelector(".btn-edition");
@@ -32,6 +36,7 @@ function verifModeEdition() {
     })
 }
 
+// Active les fonctionnalités d'édition : rendre les noms modifiables, afficher les boutons supprimer/ajouter
 function modeEdition() {
     let buttonEdition = document.querySelector(".btn-edition");
     let buttonRemove = document.querySelectorAll(".delete-btn");
@@ -70,6 +75,7 @@ function modeEdition() {
     });
 }
 
+// Désactive les fonctionnalités d'édition et revient à l'affichage normal
 function exitModeEdition() {
     let buttonEdition = document.querySelector(".btn-edition");
     let buttonRemove = document.querySelectorAll(".delete-btn");
@@ -87,6 +93,7 @@ function exitModeEdition() {
     });
 }
 
+// Retourne le code HTML pour une nouvelle carte de membre
 function addMember() {
     return `
     <button class="delete-btn">x</button>
@@ -105,6 +112,7 @@ function addMember() {
     </div>`;
 }
 
+// Crée l'effet de grattage sur le canvas (gomme interactive)
 function grattage(card) {
 
     let ctx = card.getContext("2d");
