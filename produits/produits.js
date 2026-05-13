@@ -16,7 +16,8 @@ function genererProduitHTML(produit) {
     <div class="produit" id="${produit.id}" >
         <img src="${produit.image}" alt="${produit.nom}" class="imgProduit" id="img${produit.id}" onclick="alternerImage('${produit.id}')">
         <h3>${produit.nom}</h3>
-        <p>Prix: ${produit.prix}€</p>
+        <h4>Prix: ${produit.prix}€</h4>
+        <p >${produit.description}</p>
 
         <form class="selectionForm">
             <select>

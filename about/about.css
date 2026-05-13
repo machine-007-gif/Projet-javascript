@@ -1,141 +1,358 @@
-/*style h1*/
-#a_propos h1 {
-    margin: 0;
-    font-weight: 900;
-    font-size: 38px; 
-    line-height: 1;
-    letter-spacing: -2.2px;
-    text-transform: uppercase;
-    padding: 25px;
-}
-/*style p*/
-.rec-histoire p {
-    margin: 0;
-    font-size: 20px; 
-    line-height: 1;
-    letter-spacing: 0.5px;
-    line-height: 30px;
-    padding: 25px;
-}
-/*rectangle de notre histoire*/
-.rec-histoire{
-    background-color:#ffffff;
-    color: black;
-    border-radius: 10px;
-    margin: 20px;
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
-}
-/*rectangle du trackeur*/
-.rec-trackeur{
-    background-color:#ffffff;
-    color: black;
-    border-radius: 10px;
-    margin: 20px;
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
-    border-radius: 10px;
-    margin: 20px;
+/* ===== ABOUT PAGE — TRACKWEAR ===== */
+/* Cohérent avec la charte brutalist/editorial du site */
 
-}
-.rec-trackeur p{
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap');
+
+*, *::before, *::after {
+    box-sizing: border-box;
     margin: 0;
-    font-size: 20px; 
-    line-height: 1;
-    letter-spacing: 0.5px;
-    line-height: 30px;
-    padding: 25px;
+    padding: 0;
 }
-/*modif image du trackeur*/
-#trackeur{
-    border-radius: 10px;
-    margin: 20px;
-    width: 400px;  
+
+body {
+    background: #fafafa;
+    font-family: 'Inter', sans-serif;
+    color: #0a0a0a;
 }
-/*met tout sur la meme ligne */
-.ligne {
-    display: flex;       
-    align-items: center; 
-    gap: 20px;           
-}
-/*animation des missions*/
-.boite-animée {
-    width: 450px;           
-    height: 60px;           
-    background-color: #2c3e50; 
-    color: white;
-    border-radius: 8px;
+
+/* ===== SECTION PRINCIPALE ===== */
+#a_propos {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 60px 5% 100px;
     display: flex;
-    flex-direction: column; 
-    justify-content: center;
+    flex-direction: column;
+    gap: 60px;
+}
+
+/* ===== TITRES DE SECTION ===== */
+#a_propos > h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 8vw, 96px);
+    letter-spacing: 3px;
+    color: #0a0a0a;
+    line-height: 1;
+    position: relative;
+    display: inline-block;
+}
+
+#a_propos > h1::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: #ff3b00;
+    margin-top: 10px;
+    transition: width 0.4s ease;
+}
+
+#a_propos > h1:hover::after {
+    width: 100%;
+}
+
+/* ===== BLOC HISTOIRE ===== */
+.rec-histoire {
+    border: 2px solid #0a0a0a;
+    padding: 40px;
+    position: relative;
+    background: #fff;
+    max-width: 860px;
+    animation: fadeInUp 0.6s ease both;
+}
+
+.rec-histoire::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: #ff3b00;
+}
+
+.rec-histoire p {
+    font-size: 16px;
+    line-height: 1.85;
+    color: #333;
+    font-weight: 400;
+    white-space: pre-line;
+}
+
+/* ===== LIGNE (image + texte) ===== */
+.ligne {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    align-items: flex-start;
+}
+
+/* ===== IMAGE TRACEUR ===== */
+#trackeur {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    border: 2px solid #0a0a0a;
+    flex-shrink: 0;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+#trackeur:hover {
+    box-shadow: -8px 8px 0 rgba(255, 59, 0, 0.2);
+    transform: translateY(-4px);
+}
+
+/* ===== BLOC TEXTE TRACKEUR ===== */
+.rec-trackeur {
+    flex: 1;
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.rec-trackeur p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #333;
+    padding: 24px;
+    border: 2px solid #e8e8e8;
+    background: #fff;
+    position: relative;
+    transition: border-color 0.25s ease;
+}
+
+.rec-trackeur p:hover {
+    border-color: #ff3b00;
+}
+
+/* ===== BOÎTES MISSIONS ===== */
+.boite-animée {
+    flex: 1;
+    min-width: 200px;
+    min-height: 180px;
+    border: 2px solid #0a0a0a;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    overflow: hidden;       
-    transition: all 0.4s ease-in-out; 
+    justify-content: center;
+    gap: 12px;
     cursor: pointer;
-    margin: 20px;     
+    position: relative;
+    overflow: hidden;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 32px 24px;
 }
 
-/* Style des titres de missions */
-.Missions {
-    margin: 0;
-    font-weight: bold;
-    font-size: 1.2rem;
-    flex-shrink: 0
+/* Barre de couleur en hover */
+.boite-animée::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: #ff3b00;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s ease;
 }
 
-/* Style du texte caché */
-.texte-cache {
-   margin: 0;
-    opacity: 0;
-    font-size: 0.9rem;
-    text-align: center;
-    max-height: 0; 
-    transition: all 0.5s ease;
-    padding: 0 10px;
-    line-height: 1.4;
+/* Fond qui monte */
+.boite-animée::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: #0a0a0a;
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 0;
 }
-
-/* ÉTAT AU SURVOL */
 
 .boite-animée:hover {
-    width: 550px;           /* S'élargit */
-    height: 180px;          /* S'agrandit vers le bas */
-    background-color: #e67e22; /* Change de couleur  */
+    border-color: #ff3b00;
+    box-shadow: -6px 6px 0 rgba(10, 10, 10, 0.1);
 }
 
-.boite-animée:hover .texte-cache {
-    opacity: 1;
-    max-height: 200px; 
-    margin-top: 15px;             
+.boite-animée:hover::before {
+    transform: scaleX(1);
+}
+
+.boite-animée:hover::after {
+    transform: scaleY(1);
 }
 
 .boite-animée:hover .Missions {
-    transform: translateY(-5px); 
+    color: #ff3b00;
 }
 
-.modal {
-    display: none; /* Caché par défaut */
-    position: fixed;
-    z-index: 1000; /* Toujours au-dessus */
-    left: 0; top: 0;
-    width: 100%; height: 100%;
-    background-color: rgba(0,0,0,0.7); /* Fond sombre */
+.boite-animée:hover .texte-cache {
+    color: #fafafa;
+    opacity: 1;
 }
 
-/* La boîte blanche au milieu */
-.modal-content {
-    background-color: white;
-    margin: 15% auto;
-    padding: 30px;
-    border-radius: 15px;
-    width: 50%;
-    max-width: 500px;
+.Missions {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 2px;
+    color: #0a0a0a;
     position: relative;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    z-index: 1;
+    transition: color 0.3s ease;
 }
 
-/* Le bouton fermer (X) */
+.texte-cache {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #999;
+    position: relative;
+    z-index: 1;
+    opacity: 0.7;
+    transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+/* IDs spécifiques pour variantes visuelles */
+#securite   { border-left: 4px solid #ff3b00; }
+#Exploration{ border-left: 4px solid #0a0a0a; }
+#Innovation { border-left: 4px solid #666; }
+
+/* ===== MODALES ===== */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(10, 10, 10, 0.75);
+    z-index: 1000;
+    backdrop-filter: blur(4px);
+    animation: fadeIn 0.25s ease;
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fafafa;
+    border: 2px solid #0a0a0a;
+    padding: 48px;
+    max-width: 560px;
+    width: 90%;
+    box-shadow: -12px 12px 0 rgba(10, 10, 10, 0.12);
+    animation: slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-content h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    color: #0a0a0a;
+    border-bottom: 3px solid #ff3b00;
+    padding-bottom: 12px;
+}
+
+.modal-content p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #444;
+}
+
 .fermer {
     position: absolute;
-    right: 20px; top: 10px;
-    font-size: 28px;
+    top: 16px;
+    right: 20px;
+    font-size: 24px;
     cursor: pointer;
+    color: #999;
+    transition: color 0.2s ease, transform 0.2s ease;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    line-height: 1;
+}
+
+.fermer:hover {
+    color: #ff3b00;
+    transform: rotate(90deg);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -44%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    #a_propos {
+        padding: 40px 5% 60px;
+        gap: 40px;
+    }
+
+    .rec-histoire {
+        padding: 24px;
+    }
+
+    .rec-histoire p {
+        font-size: 14px;
+    }
+
+    #trackeur {
+        width: 100%;
+        height: 240px;
+    }
+
+    .ligne {
+        flex-direction: column;
+    }
+
+    .boite-animée {
+        min-height: 140px;
+    }
+
+    .Missions {
+        font-size: 24px;
+    }
+
+    .modal-content {
+        padding: 32px 24px;
+    }
+
+    .modal-content h2 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    #a_propos > h1 {
+        font-size: 40px;
+    }
+
+    .boite-animée {
+        width: 100%;
+    }
 }
