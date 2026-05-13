@@ -1,3 +1,6 @@
+// Fichier acceuil.js : Gère l'animation du slogan sur la page d'accueil
+// Les mots s'affichent un par un avec un effet de fondu
+
 function initSloganAnimation() {
     // On récupère l'élément HTML où le texte va s'afficher
     let sloganElement = document.getElementById('slogan-animated');

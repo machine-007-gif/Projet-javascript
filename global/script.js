@@ -1,3 +1,6 @@
+// Fichier script.js : Regroupe les fonctionnalités globales du site
+// Horloge numérique, chronomètre, navigation animée, menu mobile, et système de plagiat
+
 // --- ÉCRAN DE CHARGEMENT ---
 // Cache le loader quand toute la page (images comprises) a fini de charger
 window.addEventListener('load', () => {
@@ -10,7 +13,7 @@ window.addEventListener('load', () => {
 });
 
 // --- ANALYSE DU STYLE ---
-// Regarde la couleur d'un bouton avant et après avoir cliqué dessus
+// Ajoute une classe au lien cliqué pour montrer l'activation (test de style en live)
 function logAndChangeStyle(element) {
     const styleAvant = window.getComputedStyle(element);
     const ancienneCouleur = styleAvant.backgroundColor;
@@ -41,7 +44,7 @@ function initPlagiarismWarning() {
 }
 
 // --- NAVIGATION ---
-// Gère les clics sur le menu et l'animation de transition
+// Gère les clics sur les liens du menu avec animation de transition
 function initNavigation() {
     const links = document.querySelectorAll('nav a, .nav-link');
     const loader = document.getElementById('loader-overlay');
@@ -76,7 +79,7 @@ function initNavigation() {
 }
 
 // --- HORLOGE DIGITALE ---
-// Crée les 7 petites barres pour fabriquer un chiffre (comme sur une calculette)
+// Crée les 7 petites barres de type affichage 7-segments (comme une calculette)
 function addSegments(digitId) {
     let chiffre = document.querySelector(digitId);
     if (!chiffre) return;
@@ -88,7 +91,7 @@ function addSegments(digitId) {
     }
 }
 
-// Allume ou éteint les barres pour dessiner le bon chiffre (0, 1, 2...)
+// Active/désactive les segments pour afficher le bon chiffre
 function updateDigit(digitId, value) {
     // Liste des segments à allumer (1) ou éteindre (0) pour chaque chiffre
     let segmentStates = [
@@ -110,7 +113,7 @@ function updateDigit(digitId, value) {
     });
 }
 
-// Récupère l'heure de l'ordinateur et met à jour l'affichage
+// Récupère l'heure système et met à jour l'affichage digital
 function updateTime() {
     let now = new Date();
     let hours = now.getHours();
@@ -122,6 +125,7 @@ function updateTime() {
 }
 
 // --- CHRONOMÈTRE ---
+// Affiche le temps écoulé depuis l'arrivée sur la page
 let startTime = Date.now(); // Enregistre le moment où on arrive sur le site
 function updateChrono() {
     let now = Date.now();
@@ -137,7 +141,7 @@ function updateChrono() {
 }
 
 // --- INTERACTIONS TÉLÉPHONE ---
-// Joue une sonnerie si on copie un numéro de téléphone dans le footer
+// Joue une sonnerie si on copie correctement un numéro dans le footer
 function initFooterPhoneEvents() {
     let phoneNumbers = document.querySelectorAll('.phone-number');
     let ringtone = document.getElementById('ringtone');
@@ -165,6 +169,7 @@ function initFooterPhoneEvents() {
     });
 }
 
+// Auvre/ferme le menu mobile en cliquant sur le hamburger
 function menu() {
     let hamburger = document.getElementById("hamburger");
     let navLinks = document.getElementById("nav-links");

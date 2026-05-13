@@ -1,3 +1,6 @@
+// Fichier location.js : Gère les cartes interactives avec Leaflet
+// Affiche les campus ISEN avec géolocalisation, météo et calcul des distances
+
 const API_KEY = "1fb5f48e05b6441888c132553262704";
 let globalMap = null;
 
@@ -13,6 +16,7 @@ let mapInstance = null;
 let villeActive = null;
 
 // ── MÉTÉO ──────────────────────────────────────────────
+// Récupère la température actuelle pour chaque campus via l'API WeatherAPI
 async function chargerTouteLaMeteo() {
     for (let ville of Object.keys(CAMPUS)) {
         try {
@@ -112,6 +116,7 @@ function initialiserCarte(latIsen, lonIsen) {
 }
 
 // ── ITINÉRAIRE ─────────────────────────────────────────
+// Affiche la distance, les coordonnées et trace une ligne entre l'utilisateur et le campus
 function afficherItineraire(userLat, userLon, isenLat, isenLon) {
     // Mise à jour des stats
     const dist = calculerDistance(userLat, userLon, isenLat, isenLon);
@@ -180,6 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // ── FORMULE HAVERSINE ──────────────────────────────────
+// Calcule la distance en km entre deux coordonnées GPS
 function calculerDistance(lat1, lon1, lat2, lon2) {
     const R = 6371;
     const dLat = (lat2 - lat1) * Math.PI / 180;

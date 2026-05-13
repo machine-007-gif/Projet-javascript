@@ -1,3 +1,5 @@
+// Fichier about.js : Gère l'ouverture et la fermeture des modales sur la page "À propos"
+
 // Fonction pour ouvrir la modale ciblée
 function ouvrirModale(id) {
     document.getElementById(id).style.display = "block";

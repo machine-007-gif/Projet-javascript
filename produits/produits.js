@@ -1,3 +1,6 @@
+// Fichier produits.js : Gère l'affichage des produits et les fonctionnalités d'achat
+// Inclut les filtres par taille, type et prix, ainsi que l'alternance des images produits
+
 let listeProduits = [
     {id: 'Chapeau', type:'accessoire', Selection:'taille', tailles: ['1-3 mois','7-6 mois','2-3 ans','4-6 ans','7-10 ans'], nom: 'Chapeau', prix: 20, image: '../assets/images/produits/chapeau.png', image2: '../assets/images/produits/chapeauInterieur.png', description: 'Chapeau artisanal pour bébé, doux et respirant, idéal pour le soleil.'},
     {id: 'CoucheFleurs', type:'habillement', Selection:'taille', tailles: ['1-3 mois','4-6 mois','7-10 mois','11-24 mois','2-3 ans'], nom: 'Couche fleurie', prix: 15, image: '../assets/images/produits/coucheFleursF.png', image2: '../assets/images/produits/coucheFleursDosF.png', description: 'Couche lavable motif fleuri, écologique et confortable pour les tout-petits.'},
@@ -11,6 +14,7 @@ let listeProduits = [
 ];
 
 // ───────── Rendu HTML ───────── //
+// Crée le code HTML pour afficher un produit avec son image, prix et options
 function genererProduitHTML(produit) {
     return `
     <div class="produit" id="${produit.id}" >
@@ -35,6 +39,7 @@ function genererProduitHTML(produit) {
 }
 
 // ───────── Alterner images ───────── //
+// Bascule entre deux images quand on clique sur une image produit
 function alternerImage(id) {
     let img = document.getElementById(`img${id}`);
     // cherche le produit correspondant à l'id
@@ -94,8 +99,7 @@ function Acheter(event) {
 }
 
 // ───────── Filtre ───────── //
-//filtre → nouvelle liste → re-génère le HTML → écrase l'ancien affichage
-
+// Filtre les produits selon taille, type et prix, puis affiche uniquement les résultats
 function filtrer(){
     let taille= document.getElementById('filtreTaille').value;
     let type= document.getElementById('filtreType').value;

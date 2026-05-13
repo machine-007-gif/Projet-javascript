@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.png">
-    <link rel="stylesheet" href="../contact/contact.css">
+    <link rel="stylesheet" href="contact.css">
     <link rel="stylesheet" href="../global/styles.css">
-    <script src="../contact/contact.js" defer></script>
+    <script src="contact.js" defer></script>
     <script src="../global/script.js" defer></script>
-    <title>Contact</title>
+    <title>Contact — Trackwear</title>
 </head>
 <body>
     <div id="loader-overlay">
         <div class="loader-bar"></div>
         <div id="loader-text">Chargement...</div>
     </div>
+
     <header>
         <nav>
             <div class="logo-container">
@@ -47,33 +47,38 @@
 
     <section class="contact-section">
         <div class="form-wrapper">
-            <h2>Contactez le responsable de l'équipe</h2>
+            <h2>Nous Contacter</h2>
+            <p class="subtitle">Remplissez le formulaire ci-dessous</p>
 
+            <!-- Champ Nom -->
             <div class="input-group">
                 <span class="input-icon">👤</span>
                 <input type="text" id="nom" placeholder="Prénom Nom">
             </div>
             <p class="error-msg" id="error-nom"></p>
 
+            <!-- Champ Email -->
             <div class="input-group">
                 <span class="input-icon">@</span>
                 <input type="text" id="email" placeholder="email@example.com">
             </div>
             <p class="error-msg" id="error-email"></p>
 
+            <!-- Champ Message -->
             <div class="input-group textarea-group">
-                <textarea id="message" placeholder="Votre message (1000 caractères maximum)" maxlength="1000"></textarea>
+                <textarea id="message" placeholder="Votre message (min. 20, max. 1000 caractères)" maxlength="1000"></textarea>
             </div>
             <p class="error-msg" id="error-message"></p>
 
+            <!-- Bouton Envoyer -->
             <button id="btn-envoyer" disabled>Envoyer</button>
         </div>
     </section>
 
-    <!-- Overlay du jeu -->
+    <!-- GAME OVERLAY -->
     <div id="game-overlay">
         <div id="game-box">
-            <h2 id="game-title">🎮 Défi avant envoi !</h2>
+            <h2 id="game-title">🎮 Défi !</h2>
             <p id="game-instruction"></p>
             <div id="game-area"></div>
             <p id="game-result"></p>
