@@ -1,0 +1,5 @@
+Lien vers la maquette du site(Figma):
+https://www.figma.com/site/XRVJvh7rMv0xezGVWam6TK/TrackWear?node-id=0-1&t=kfsP2HcP8dSsIFE8-1
+
+Lien vers le github et vers le déploiement github pages:
+https://github.com/machine-007-gif/Projet-javascript
