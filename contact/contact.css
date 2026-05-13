@@ -192,9 +192,7 @@
     box-shadow: 2px 2px 0 #ff3b00;
 }
 
-#btn-envoyer:not(:disabled):hover::before {
-    transform: scaleX(1);
-}
+
 
 /* ===== GAME OVERLAY ===== */
 #game-overlay {

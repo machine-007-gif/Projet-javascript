@@ -8,7 +8,7 @@ function initSloganAnimation() {
     // Sécurité : si l'élément n'existe pas sur la page, on arrête tout
     if (!sloganElement) return;
 
-    let fullText = "Pour que leurs seules traces soient celles dans le sable.";
+    let fullText = "Pour que leurs seules traces soient celles dans le sable";
     
     // On transforme la phrase en une liste de mots (en coupant aux espaces)
     let words = fullText.split(" "); 

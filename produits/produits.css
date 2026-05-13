@@ -16,6 +16,10 @@ body {
     margin: 10px;
 }
 
+.product {
+    margin: 20px;
+}
+
 
 
 /* ===== FILTRES ===== */
@@ -34,6 +38,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    margin-left: 20px;
 }
 
 .filtre label {
@@ -43,12 +48,14 @@ body {
     letter-spacing: 1.5px;
     text-transform: uppercase;
     color: #999;
+    margin-left: 20px;
 }
 
 .filtre select {
     margin: 10px ;
     padding: 10px 36px 10px 14px;
     border: 2px solid #0a0a0a;
+    border-radius: 10px;
     background: #fafafa;
     font-family: 'Inter', sans-serif;
     font-size: 13px;
@@ -61,6 +68,7 @@ body {
     background-position: right 12px center;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
     min-width: 160px;
+    width: 70%;
 }
 
 .filtre select:focus {
@@ -73,46 +81,21 @@ body {
     border-color: #ff3b00;
 }
 
-/* Range slider */
-.filtre input[type="range"] {
-    margin: 10px;
-    width: 200px;
-    height: 4px;
-    background: #0a0a0a;
-    outline: none;
-    cursor: pointer;
+#filtrePrix {
+    width: 70%;
+    margin-left: 10px;
+    margin-bottom: 10px;
 }
 
-.filtre input[type="range"]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    width: 18px;
-    height: 18px;
-    background: #ff3b00;
-    border: 2px solid #0a0a0a;
-    cursor: pointer;
-    transition: transform 0.2s ease;
-}
-
-.filtre input[type="range"]::-webkit-slider-thumb:hover {
-    transform: scale(1.2);
-}
-
-.filtre input[type="range"]::-moz-range-thumb {
-    width: 18px;
-    height: 18px;
-    background: #ff3b00;
-    border: 2px solid #0a0a0a;
-    cursor: pointer;
-    border-radius: 0;
-}
 
 /* Bouton reset */
 #btnResetFiltres {
-    margin: 10px;
+    margin: 10px 25px;
     padding: 12px 28px;
     background: transparent;
     color: #0a0a0a;
     border: 2px solid #0a0a0a;
+    border-radius: 10px;
     font-family: 'Inter', sans-serif;
     font-size: 11px;
     font-weight: 700;
