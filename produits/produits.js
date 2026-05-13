@@ -27,7 +27,6 @@ function genererProduitHTML(produit) {
         </form>
 
         <button class="btnAcheter" onclick="Acheter(event)">Acheter</button>
-        <canvas id="canvas${produit.id}" class="canvasAchat" width="200" height="200"></canvas>
     </div>
 
 

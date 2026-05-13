@@ -300,13 +300,7 @@ body {
     transform: scale(0.98);
 }
 
-/* Canvas confirmation achat */
-.canvasAchat {
-    width: 100%;
-    height: auto;
-    border: 2px solid #0a0a0a;
-    background: transparent;
-}
+
 
 
 
@@ -414,6 +408,3 @@ body {
     height: 35px;
 }
 
-.canvasAchat{
-    border: 1px solid black;
-}
